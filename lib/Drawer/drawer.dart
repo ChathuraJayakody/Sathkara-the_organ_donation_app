@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organ_donation_app/Screens/HomePage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -6,6 +7,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      
       backgroundColor: Colors.white,
       child: Column(
         children: [
@@ -48,6 +50,7 @@ class MyDrawer extends StatelessWidget {
                   title: const Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
                     // Navigate to Home
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
                   },
                 ),
                 ListTile(
@@ -76,11 +79,11 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           // Footer
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "App Version: 1.0.0",
                   style: TextStyle(fontSize: 14, color: Colors.grey),

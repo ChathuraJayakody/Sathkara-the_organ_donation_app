@@ -59,74 +59,92 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
 
-      body: Column(
-        children: [
-        Expanded(
-          child: PageView.builder(
-          itemCount: images.length,
-          pageSnapping: true,
-          controller: _pageController,
-          onPageChanged: (page){
-            setState(() {
-              activePage = page;
-            });
-          },  
-          itemBuilder: 
-          (context, pagePosition) {
-              return Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white,style: BorderStyle.solid,width: 3)
+      body: Container(
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage("assets/Images/background.jpg"),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Color.fromARGB(73, 7, 28, 99),
+             BlendMode.darken)
+          )
+        ),
+        child: Column(
+          children: [
+          Expanded(
+            child: PageView.builder(
+            itemCount: images.length,
+            pageSnapping: true,
+            controller: _pageController,
+            onPageChanged: (page){
+              setState(() {
+                activePage = page;
+              });
+            },  
+            itemBuilder: 
+            (context, pagePosition) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white,style: BorderStyle.solid,width: 3)
+                        ),
+                        margin:const EdgeInsets.all(10),
+                        child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,),
+                        
                       ),
-                      margin:const EdgeInsets.all(10),
-                      child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,),
-                      
-                    ),
-                  ],
-                ),
-              );
-            },
-          
-          ),
-        ),
-         const Padding(
-          padding: EdgeInsets.only(left: 30,right: 30),
-          child: Text("We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",style: TextStyle(fontSize: 16,)),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Image.asset("assets/Images/logo.png",width: 120,),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 20,top: 20),
-          child: SizedBox(
-            width: 200,
-            height: 50,
-            child: ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const DonateScreen()));
-            },
-            style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Donate",style: TextStyle(fontSize: 20,color: Colors.white),),
+                    ],
+                  ),
+                );
+              },
+            
             ),
           ),
-        ),
-
-        Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: SizedBox(
-            width: 200,
-            height: 50,
-            child: ElevatedButton(onPressed: (){
-              
-            },
-            style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Find Organ",style: TextStyle(fontSize: 20,color: Colors.white),),
+           const Padding(
+            padding: EdgeInsets.only(left: 30,right: 30),
+            child: Text("We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
+            style: TextStyle(
+              fontSize: 17,
+              color: Colors.white,
+              fontWeight: FontWeight.w700
+              ),
+              textAlign: TextAlign.center,
+              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Image.asset("assets/Images/logo.png",width: 120,),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20,top: 20),
+            child: SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DonateScreen()));
+              },
+              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Donate",style: TextStyle(fontSize: 20,color: Colors.white),),
+              ),
             ),
           ),
-        )
-        ] 
+        
+          Padding(
+            padding: const EdgeInsets.only(bottom: 30),
+            child: SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(onPressed: (){
+                
+              },
+              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Find Organ",style: TextStyle(fontSize: 20,color: Colors.white),),
+              ),
+            ),
+          )
+          ] 
+        ),
       ),
 
       

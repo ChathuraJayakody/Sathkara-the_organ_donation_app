@@ -36,45 +36,90 @@ class _DonateScreenState extends State<DonateScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 50,bottom: 15),
                 child: Container(
-                  width: 250,
-                  height: 50,
+                  width: 200,
+                  height: 190,
                   decoration:const BoxDecoration(
+                    border: Border.symmetric(
+                      horizontal: BorderSide(color: Colors.black,width: 3),
+                      vertical: BorderSide(color: Colors.black, width: 3)
+                      ),
+                    image: DecorationImage(image: AssetImage("assets/Images/heart.png"),
+                    fit: BoxFit.fill
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                     color: Color.fromRGBO(3,57,108,1)
                   ),
-                  child:const Center(child: Text("ORGANS",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
+                  child: const Stack(
+                   children: [
+                  // Positioned text at the bottom center
+                  Positioned(
+                    bottom: 10, // Distance from the bottom
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        "ORGANS",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          backgroundColor: Color.fromARGB(189, 255, 255, 255),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+                  ),
                 ),
               ),
             ),
 
-            GestureDetector(
-              onTap: (){},
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10,bottom: 15),
-                child: Container(
-                  width: 250,
-                  height: 50,
-                  decoration:const BoxDecoration(
-                    color: Color.fromRGBO(3,57,108,1)
+           GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 15),
+              child: Container(
+                width: 200,
+                height: 190,
+                decoration: const BoxDecoration(
+                  border: Border.symmetric(
+                    horizontal: BorderSide(color: Colors.black, width: 3),
+                    vertical: BorderSide(color: Colors.black, width: 3),
                   ),
-                  child:const Center(child: Text("BLOOD",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
-                ),
+                  image: DecorationImage(
+                    image: AssetImage("assets/Images/blood.jpg"),
+                    fit: BoxFit.fill,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Color.fromRGBO(3, 57, 108, 1),
               ),
-            ),
+              child:const Stack(
+                children: [
+                  // Positioned text at the bottom center
+                  Positioned(
+                    bottom: 10, // Distance from the bottom
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        "BLOOD",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          backgroundColor: Color.fromARGB(189, 255, 255, 255),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+    ),
+  ),
+),
 
-            GestureDetector(
-              onTap: (){},
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10,bottom: 15),
-                child: Container(
-                  width: 250,
-                  height: 50,
-                  decoration:const BoxDecoration(
-                    color: Color.fromRGBO(3,57,108,1)
-                  ),
-                  child:const Center(child: Text("MONEY",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
-                ),
-              ),
-            ),
+
+          
         
           ],
         ),
