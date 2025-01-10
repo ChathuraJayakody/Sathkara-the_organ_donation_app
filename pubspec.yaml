@@ -44,6 +44,7 @@ dependencies:
   firebase_auth: ^5.3.4
   date_format: ^2.0.9
   intl: ^0.20.1
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 30,right: 30),
             child: Text("We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.w600
               ),
