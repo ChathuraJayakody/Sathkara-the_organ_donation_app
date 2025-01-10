@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
+import 'package:organ_donation_app/Screens/about_us.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -66,6 +67,7 @@ class MyDrawer extends StatelessWidget {
                   title: const Text("About Us", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
                     // Navigate to About Us
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutUs()));
                   },
                 ),
                 const Divider(height: 20, thickness: 1),
