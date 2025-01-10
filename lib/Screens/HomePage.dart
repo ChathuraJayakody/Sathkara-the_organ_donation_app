@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Drawer/drawer.dart';
 import 'package:organ_donation_app/Screens/donateScreen.dart';
@@ -55,17 +54,17 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 1,
         backgroundColor:const Color.fromRGBO(1,31,75, 1),
-        title:const Text("Helth Care",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.white),),
+        title:const Text("Sathkara",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.white),),
         centerTitle: true,
       ),
 
       body: Container(
         alignment: Alignment.center,
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/Images/background.jpg"),
+          image: DecorationImage(image: AssetImage("assets/Images/bg4.png"),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Color.fromARGB(73, 7, 28, 99),
+            Color.fromARGB(153, 56, 56, 56),
              BlendMode.darken)
           )
         ),
@@ -90,10 +89,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white,style: BorderStyle.solid,width: 3)
+                          border: Border.all(width: 0)
                         ),
                         margin:const EdgeInsets.all(10),
-                        child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,),
+                        child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,width: 1000),
                         
                       ),
                     ],
@@ -107,19 +106,19 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 30,right: 30),
             child: Text("We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 16,
               color: Colors.white,
-              fontWeight: FontWeight.w700
+              fontWeight: FontWeight.w600
               ),
               textAlign: TextAlign.center,
               ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: Image.asset("assets/Images/logo.png",width: 120,),
+            child: Image.asset("assets/Images/logo1.png",width: 160,),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20,top: 20),
+            padding: const EdgeInsets.only(bottom: 20,top: 5),
             child: SizedBox(
               width: 200,
               height: 50,
@@ -132,7 +131,7 @@ class _HomePageState extends State<HomePage> {
           ),
         
           Padding(
-            padding: const EdgeInsets.only(bottom: 30),
+            padding: const EdgeInsets.only(bottom: 40),
             child: SizedBox(
               width: 200,
               height: 50,

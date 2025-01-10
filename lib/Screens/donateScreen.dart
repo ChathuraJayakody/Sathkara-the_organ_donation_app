@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/registerForm.dart';
+import 'package:organ_donation_app/Screens/registerForm2.dart';
 
 class DonateScreen extends StatefulWidget {
   const DonateScreen({super.key});
@@ -75,7 +76,9 @@ class _DonateScreenState extends State<DonateScreen> {
             ),
 
            GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const BloodDonationFormPage()));
+            },
             child: Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 15),
               child: Container(
