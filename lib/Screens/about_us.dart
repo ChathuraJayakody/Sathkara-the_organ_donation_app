@@ -21,7 +21,7 @@ class AboutUs extends StatelessWidget {
       body: Container(
         alignment: Alignment.topCenter,
         decoration: const BoxDecoration(
-          color: Color.fromRGBO(34, 28, 90, 1),
+          color: Color.fromRGBO(44, 41, 77, 1),
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -42,22 +42,15 @@ class AboutUs extends StatelessWidget {
                   "Welcome to Sathkara, Sri Lanka's healthcare app for organ and blood donation, dedicated to connecting generous donors with hospitals and individuals in urgent need. Our mission is to foster a culture of compassion, unity, and generosity while making the donation process more accessible, efficient, and reliable. Together, we aim to build a healthier, more empathetic Sri Lanka where every life matters and every act of kindness makes a lasting impact. Join us in bringing hope, healing, and positive change to countless lives across the nation.",
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                     color: Color.fromARGB(221, 255, 255, 255),
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 5),
-                Image.asset(
-                  'assets/Images/logo1.png',
-                  height: 200,
-                  width: 200,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 40),
                 const Text(
                   "Reach Us On",
-                  style: TextStyle(
+                  style: TextStyle(                   
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(255, 255, 255, 1),
@@ -65,7 +58,7 @@ class AboutUs extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: [
@@ -127,6 +120,14 @@ class AboutUs extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 30),
+                Image.asset(
+                  'assets/Images/logo3.png',
+                  height: 130,
+                  width: 200,
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(height: 100),
+                
               ],
             ),
           ),
