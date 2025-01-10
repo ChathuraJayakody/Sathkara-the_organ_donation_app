@@ -3,6 +3,7 @@ import 'package:organ_donation_app/Screens/HomePage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             accountName: const Text(
-              "P.Jayakody",
+              "C.Jayakody",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             accountEmail: const Text("pjayakody@gmail.com"),
