@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:organ_donation_app/Screens/registerForm.dart';
 import 'package:organ_donation_app/Screens/registerForm2.dart';
 
@@ -39,21 +40,14 @@ class _DonateScreenState extends State<DonateScreen> {
                 child: Container(
                   width: 200,
                   height: 190,
-                  decoration:const BoxDecoration(
-                    border: Border.symmetric(
-                      horizontal: BorderSide(color: Colors.black,width: 3),
-                      vertical: BorderSide(color: Colors.black, width: 3)
-                      ),
-                    image: DecorationImage(image: AssetImage("assets/Images/heart.png"),
-                    fit: BoxFit.fill
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    color: Color.fromRGBO(3,57,108,1)
-                  ),
-                  child: const Stack(
+                  child: Stack(
                    children: [
+
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Lottie.asset('assets/Images/Animation - 1736575011484.json')),
                   // Positioned text at the bottom center
-                  Positioned(
+                  const Positioned(
                     bottom: 10, // Distance from the bottom
                     left: 0,
                     right: 0,
@@ -84,22 +78,15 @@ class _DonateScreenState extends State<DonateScreen> {
               child: Container(
                 width: 200,
                 height: 190,
-                decoration: const BoxDecoration(
-                  border: Border.symmetric(
-                    horizontal: BorderSide(color: Colors.black, width: 3),
-                    vertical: BorderSide(color: Colors.black, width: 3),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage("assets/Images/blood.jpg"),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Color.fromRGBO(3, 57, 108, 1),
-              ),
-              child:const Stack(
+                
+              child: Stack(
                 children: [
+
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Lottie.asset('assets/Images/Animation2.json')),
                   // Positioned text at the bottom center
-                  Positioned(
+                  const Positioned(
                     bottom: 10, // Distance from the bottom
                     left: 0,
                     right: 0,

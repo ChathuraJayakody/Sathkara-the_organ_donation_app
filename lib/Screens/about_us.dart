@@ -28,6 +28,7 @@ class AboutUs extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // const Text(
                 //   "About Sathkara",
@@ -61,6 +62,7 @@ class AboutUs extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.phone, color: Colors.yellow),
                         SizedBox(width: 10),
@@ -75,6 +77,7 @@ class AboutUs extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.email, color: Colors.yellow),
                         SizedBox(width: 10),

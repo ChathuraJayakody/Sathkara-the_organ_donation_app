@@ -89,10 +89,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
                           border: Border.all(width: 0)
                         ),
                         margin:const EdgeInsets.all(10),
-                        child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,width: 1000),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,width: 1000,)),
                         
                       ),
                     ],
@@ -104,18 +107,19 @@ class _HomePageState extends State<HomePage> {
           ),
            const Padding(
             padding: EdgeInsets.only(left: 30,right: 30),
-            child: Text("We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
+            child: Text(
+              "We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
               fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.w600
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
               ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: Image.asset("assets/Images/logo1.png",width: 160,),
+            child: Image.asset("assets/Images/logo1.png",width: 180,),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 20,top: 5),
