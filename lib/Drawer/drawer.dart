@@ -1,80 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:organ_donation_app/Screens/HomePage.dart';
+import 'package:organ_donation_app/Screens/about_us.dart';
+import 'package:organ_donation_app/Services/auth.dart';
 
-class MyDrawer extends StatefulWidget {
+class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+  
 
-  @override
-  State<MyDrawer> createState() => _MyDrawerState();
-}
-
-class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color.fromRGBO(179,205,224,1),
-      child: ListView(
-        children:  [
-         const DrawerHeader(
-            decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: Colors.white,width: 10)),
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.only(topRight: Radius.circular(100)),
-              color: Color.fromRGBO(1,31,75,1)
-            ),
-            child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(100)),
-                color: Color.fromRGBO(1,31,75,1)
+      
+      backgroundColor: Colors.white,
+      child: Column(
+        children: [
+          // Drawer Header with user info and gradient background
+          UserAccountsDrawerHeader(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(1, 31, 75, 1),
+                  Color.fromRGBO(0, 91, 150, 1),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              accountName: Text("User Name",style: TextStyle(fontSize: 16),),
-              accountEmail: Text("User Email",style: TextStyle(fontSize: 16)),
-              currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage("assets/Images/person.png"),
-              ),
-              )
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5,bottom: 5),
-              child: Container(
-                color: const Color.fromRGBO(0,91,150,1),
-                child: ListTile(
-                  leading: const Icon(Icons.settings,color: Colors.white,size: 30,),
-                  title: const Text("Settings",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                  
-                  onTap: (){
-                
-                  },
+            accountName: const Text(
+              "C.Jayakody",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            accountEmail: const Text("pjayakody@gmail.com"),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: ClipOval(
+                child: Image.asset(
+                  "assets/Images/person.png",
+                  fit: BoxFit.cover,
+                  width: 70,
+                  height: 70,
                 ),
               ),
             ),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 5,bottom: 5),
-              child: Container(
-                color: const Color.fromRGBO(0,91,150,1),
-                child: ListTile(
-                  leading: const Icon(Icons.note_alt_rounded,color: Colors.white,size: 30,),
-                  title: const Text("About Us",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                  onTap: (){
-                
+          ),
+          // Menu Items
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.blueAccent, size: 30),
+                  title: const Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                  onTap: () {
+                    // Navigate to Home
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
                   },
                 ),
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 20,bottom: 5),
-              child: Container(
-                color: const Color.fromRGBO(0,91,150,1),
-                child: ListTile(
-                  leading: const Icon(Icons.logout,color: Colors.white,size: 30,),
-                  title: const Text("Log Out",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                  onTap: (){
-                
+                ListTile(
+                  leading: const Icon(Icons.settings, color: Colors.blueAccent, size: 30),
+                  title: const Text("Settings", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                  onTap: () {
+                    // Navigate to Settings
                   },
                 ),
-              ),
+                ListTile(
+                  leading: const Icon(Icons.info, color: Colors.blueAccent, size: 30),
+                  title: const Text("About Us", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                  onTap: () {
+                    // Navigate to About Us
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutUs()));
+                  },
+                ),
+                const Divider(height: 20, thickness: 1),
+                ListTile(
+                  leading: const Icon(Icons.logout, color: Colors.redAccent, size: 30),
+                  title: const Text("Log Out", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.redAccent)),
+                  onTap: () => AuthServices().signOut(context),
+                ),
+              ],
             ),
+          ),
+          // Footer
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "App Version: 1.0.0",
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

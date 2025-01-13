@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:organ_donation_app/Screens/registerForm.dart';
+import 'package:organ_donation_app/Screens/registerForm2.dart';
 
 class DonateScreen extends StatefulWidget {
   const DonateScreen({super.key});
@@ -36,45 +38,78 @@ class _DonateScreenState extends State<DonateScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 50,bottom: 15),
                 child: Container(
-                  width: 250,
-                  height: 50,
-                  decoration:const BoxDecoration(
-                    color: Color.fromRGBO(3,57,108,1)
+                  width: 200,
+                  height: 190,
+                  child: Stack(
+                   children: [
+
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Lottie.asset('assets/Images/Animation - 1736575011484.json')),
+                  // Positioned text at the bottom center
+                  const Positioned(
+                    bottom: 10, // Distance from the bottom
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        "ORGANS",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          backgroundColor: Color.fromARGB(189, 255, 255, 255),
+                        ),
+                      ),
+                    ),
                   ),
-                  child:const Center(child: Text("ORGANS",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
+                ],
+                  ),
                 ),
               ),
             ),
 
-            GestureDetector(
-              onTap: (){},
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10,bottom: 15),
-                child: Container(
-                  width: 250,
-                  height: 50,
-                  decoration:const BoxDecoration(
-                    color: Color.fromRGBO(3,57,108,1)
-                  ),
-                  child:const Center(child: Text("BLOOD",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
-                ),
-              ),
-            ),
+           GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const BloodDonationFormPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 15),
+              child: Container(
+                width: 200,
+                height: 190,
+                
+              child: Stack(
+                children: [
 
-            GestureDetector(
-              onTap: (){},
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10,bottom: 15),
-                child: Container(
-                  width: 250,
-                  height: 50,
-                  decoration:const BoxDecoration(
-                    color: Color.fromRGBO(3,57,108,1)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Lottie.asset('assets/Images/Animation2.json')),
+                  // Positioned text at the bottom center
+                  const Positioned(
+                    bottom: 10, // Distance from the bottom
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        "BLOOD",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                          backgroundColor: Color.fromARGB(189, 255, 255, 255),
+                        ),
+                      ),
+                    ),
                   ),
-                  child:const Center(child: Text("MONEY",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)),
-                ),
+                ],
               ),
-            ),
+    ),
+  ),
+),
+
+
+          
         
           ],
         ),
