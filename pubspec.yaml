@@ -43,6 +43,7 @@ dependencies:
   loading_indicator: ^3.1.1
   firebase_auth: ^5.3.4
   intl: ^0.20.1
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
