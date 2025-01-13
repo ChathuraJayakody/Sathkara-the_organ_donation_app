@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:intl/intl.dart';
 
 
@@ -12,6 +14,9 @@ class BloodDonationFormPage extends StatefulWidget {
 class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
   String _selectedBloodType = 'Select Blood Type';
   String _selectedGender = 'Select Gender';
+
+
+  final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _dateLastDonated = TextEditingController();
@@ -70,6 +75,295 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 70, right: 30, left: 30),
+
+            child: Form(
+              child: Column(
+                children: [
+                  const Text(
+                    "Enter Blood Donor Details",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your full name';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                        label: Text("Full Name Of Donor"),
+                        border: OutlineInputBorder()
+                      ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your ID number';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                        label: Text("ID Number"), border: OutlineInputBorder()),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your address';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                        label: Text("Donor Address"),
+                        border: OutlineInputBorder()),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    decoration:const InputDecoration(
+                        label: Text("Contact Number"),
+                        border: OutlineInputBorder()),
+                    keyboardType: TextInputType.number,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          onChanged: (value) {
+                            setState(() {
+                              if (value.isNotEmpty) {
+                              _formKey.currentState!.validate();
+                              }
+                            });
+                          },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your date of birth';
+                            }
+                            return null;
+                          },
+                          controller: _dateController,
+                          decoration: InputDecoration(
+                            label: const Text("Date Of Birth"),
+                            border: const OutlineInputBorder(),
+                            suffixIcon:
+                                IconButton(onPressed: () => _selectDate(context),
+                                 icon: const Icon(Icons.calendar_month_outlined)),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Expanded(
+                        child: DropdownButton(
+                          value: _selectedGender, 
+                          onChanged: (newValue) {
+                        setState(() {
+                          _selectedGender = newValue as String;
+                        });
+                        },
+                        items: _genderType.map((genderType){
+                        return DropdownMenuItem(
+                          value: genderType,
+                          child: Text(genderType),
+                          );
+                      }).toList(), 
+                      
+                      ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                   const Text("Medical History Of Donor"),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your medical history';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                      label: Text("Medical Conditions"),
+                      border: OutlineInputBorder(),
+                      helperText: 'such as diabetes, hypertension, etc.',
+                      helperStyle: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  DropdownButton(
+                    value: _selectedBloodType,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _selectedBloodType = newValue as String;
+                      });
+                    },
+                    items: _bloodTypes.map((bloodType) {
+                      return DropdownMenuItem(
+                        value: bloodType,
+                        child: Text(bloodType),
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your previous surgeries';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                      label: Text("Previous Surgeries"),
+                      border: OutlineInputBorder(),
+                      helperText: 'Any previous surgeries the donor has undergone.',
+                      helperStyle: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your last donation date';
+                      }
+                      return null;
+                    },
+                    controller: _dateLastDonated,
+                    decoration: InputDecoration(
+                      label: const Text("Last Donation Date"),
+                      border: const OutlineInputBorder(),
+                      suffixIcon:
+                          IconButton(onPressed: () => _selectDate2(context)
+                          , icon: const Icon(Icons.calendar_month_outlined)),
+                    ),
+                  ),
+                 
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    onChanged: (value) {
+                      setState(() {
+                        if (value.isNotEmpty) {
+                        _formKey.currentState!.validate();
+                        }
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your infectious diseases';
+                      }
+                      return null;
+                    },
+                    decoration:const InputDecoration(
+                      label: Text("Do you have any infectious diseases"),
+                      helperText: 'e.g: Hepatitis, HIV',
+                      border: OutlineInputBorder(),
+                      helperStyle: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate() && _selectedBloodType != 'Select Blood Type' || _selectedGender != 'Select Gender') {
+                          openDialog(context);
+                        }
+
+                        if(_selectedBloodType == 'Select Blood Type' || _selectedGender == 'Select Gender'){
+                          Fluttertoast.showToast(
+                            msg: "Please select a blood type and gender.",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 2,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0
+
+                          );}
+                        
+                      },
+                      style: const ButtonStyle(
+                          backgroundColor:
+                              WidgetStatePropertyAll(Color.fromRGBO(1, 31, 75, 1))),
+                      child: const Text(
+                        "SUBMIT",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
             child: Column(
               children: [
                 const Text(
@@ -235,6 +529,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                   ),
                 )
               ],
+
             ),
           ),
         ),
