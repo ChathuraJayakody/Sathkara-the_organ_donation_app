@@ -12,7 +12,7 @@ class _FindorganpageState extends State<Findorganpage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("piyumal"),
+      body: Text("chathura piyumal jayakody"),
     );
   }
 }
