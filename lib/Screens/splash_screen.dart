@@ -32,10 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/Images/logo.png",
+              Image.asset("assets/Images/logo3.png",
               width: 200,
               ),
-              const Text("Health Care", 
+              const Text("", 
               style: TextStyle(color: Colors.white,fontSize: 20),),
               const Text("Your donation is to live another life",
               style: TextStyle(color: Colors.grey),
