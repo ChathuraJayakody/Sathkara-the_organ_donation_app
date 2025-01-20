@@ -2,7 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
-import 'package:organ_donation_app/Screens/findOrganPage.dart';
+import 'package:organ_donation_app/Screens/hospitalLocations.dart';
+import 'package:organ_donation_app/Screens/map_page.dart';
 import 'package:organ_donation_app/Screens/splash_screen.dart';
 import 'package:organ_donation_app/users/loginPage.dart';
 
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: isLoggedIn ? HomePage() : SplashScreen(),
-      home: Findorganpage(),
+      home: MapPage(),
     );
   }
 }
