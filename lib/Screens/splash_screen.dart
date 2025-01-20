@@ -33,13 +33,11 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset("assets/Images/logo3.png",
-              width: 200,
+
+              width: 300,
+
               ),
-              const Text("", 
-              style: TextStyle(color: Colors.white,fontSize: 20),),
-              const Text("Your donation is to live another life",
-              style: TextStyle(color: Colors.grey),
-              ),
+              
               const SizedBox(
                 height: 30,
               ),
