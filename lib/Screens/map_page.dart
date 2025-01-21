@@ -16,24 +16,10 @@ class MapPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Kandy Hospital",
         ),
+        centerTitle: true,
       ),
       body: Column(children: [
-        Padding(padding: EdgeInsets.all(8.0,),child: TextField(
-          controller: searchController,
-          decoration: InputDecoration(
-            hintText: 'Search for a place', 
-            suffixIcon: IconButton(onPressed: (){
-              String address = searchController.text;
-              mapController.searchAndNavigate(address);
-            },
-             icon: Icon(
-              Icons.search,
-              ),
-            ),
-
-          ),
-         ),
-        ),
+      
         Expanded(child: CustomMap(),
         ),
       ],

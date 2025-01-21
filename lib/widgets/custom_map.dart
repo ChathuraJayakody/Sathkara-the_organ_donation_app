@@ -37,10 +37,7 @@ class CustomMap extends StatelessWidget {
     final MapController mapController = Get.put(MapController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Custom Map'),
-        centerTitle: true,
-      ),
+    
       body: Obx(() => Container(
             width: double.infinity,
             height: 500,

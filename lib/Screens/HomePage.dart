@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Drawer/drawer.dart';
 import 'package:organ_donation_app/Screens/donateScreen.dart';
+import 'package:organ_donation_app/Screens/findOrganPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
               width: 200,
               height: 50,
               child: ElevatedButton(onPressed: (){
-                
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Findorganpage()));   
               },
               style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: const Text("Find Organ",style: TextStyle(fontSize: 20,color: Colors.white),),
               ),

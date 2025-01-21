@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:organ_donation_app/Screens/map_page.dart';
 
 class Findorganpage extends StatefulWidget {
   const Findorganpage({super.key});
@@ -81,6 +82,9 @@ class _FindorganpageState extends State<Findorganpage> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
