@@ -17,10 +17,6 @@ class _FindorganpageState extends State<Findorganpage> {
   ];
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return const Scaffold(
-      body: Text("chathura piyumal jayakody"),
-=======
     double mqWidth = MediaQuery.of(context).size.width;
     double mqHeight = MediaQuery.of(context).size.height;
 
@@ -117,7 +113,6 @@ class _FindorganpageState extends State<Findorganpage> {
           ],
         ),
       ),
->>>>>>> main
     );
   }
 }
