@@ -17,6 +17,7 @@ class MapPage extends StatelessWidget {
       appBar: AppBar(title: Text("Kandy Hospital",
         
         ),
+        centerTitle: true,
       ),
       body: Column(children: [
       
