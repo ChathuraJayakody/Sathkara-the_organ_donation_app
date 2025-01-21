@@ -38,7 +38,7 @@ class CustomMap extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Custom Map'),
+        title: const Text('Your Directions Here'),
         centerTitle: true,
       ),
       body: Obx(() => Container(
