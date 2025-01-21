@@ -37,7 +37,7 @@ class _DonateScreenState extends State<DonateScreen> {
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 50,bottom: 15),
-                child: Container(
+                child: SizedBox(
                   width: 200,
                   height: 190,
                   child: Stack(
@@ -75,7 +75,7 @@ class _DonateScreenState extends State<DonateScreen> {
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 15),
-              child: Container(
+              child: SizedBox(
                 width: 200,
                 height: 190,
                 
