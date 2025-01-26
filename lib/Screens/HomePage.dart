@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Drawer/drawer.dart';
 import 'package:organ_donation_app/Screens/donateScreen.dart';
+import 'package:organ_donation_app/Screens/findOrganPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -48,8 +49,8 @@ class _HomePageState extends State<HomePage> {
   
   @override
   Widget build(BuildContext context) {
-    double mq_height = MediaQuery.of(context).size.height;
-    double mq_width = MediaQuery.of(context).size.width;
+    double mqHeight = MediaQuery.of(context).size.height;
+    double mqWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer:const MyDrawer(),
       backgroundColor:const Color.fromRGBO(179,205,224,1),
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: 
             (context, pagePosition) {
                 return Padding(
-                  padding: EdgeInsets.only(top: mq_height*0.04),
+                  padding: EdgeInsets.only(top: mqHeight*0.04),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -107,7 +108,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
            Padding(
-            padding: EdgeInsets.only(left: mq_width*0.06,right: mq_width*0.06),
+            padding: EdgeInsets.only(left: mqWidth*0.06,right: mqWidth*0.06),
             child:const Text(
               "We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
@@ -119,31 +120,31 @@ class _HomePageState extends State<HomePage> {
               ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: mq_height*0.04),
+            padding: EdgeInsets.only(top: mqHeight*0.04),
             child: Image.asset("assets/Images/logo3.png",width: 180,),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: mq_height*0.03,top: mq_height*0.04),
+            padding: EdgeInsets.only(bottom: mqHeight*0.03,top: mqHeight*0.04),
             child: SizedBox(
               width: 200,
               height: 50,
               child: ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const DonateScreen()));
               },
-              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Donate",style: TextStyle(fontSize: 20,color: Colors.white),),
+              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: const Text("Donate",style: TextStyle(fontSize: 20,color: Colors.white),),
               ),
             ),
           ),
         
           Padding(
-            padding: EdgeInsets.only(bottom: mq_height*0.05),
+            padding: EdgeInsets.only(bottom: mqHeight*0.05),
             child: SizedBox(
               width: 200,
               height: 50,
               child: ElevatedButton(onPressed: (){
-                
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Findorganpage()));   
               },
-              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: Text("Find Organ",style: TextStyle(fontSize: 20,color: Colors.white),),
+              style:const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))), child: const Text("Find Organ",style: TextStyle(fontSize: 20,color: Colors.white),),
               ),
             ),
           )
