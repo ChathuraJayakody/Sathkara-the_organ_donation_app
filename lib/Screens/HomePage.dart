@@ -92,12 +92,11 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(width: 0)
+                          borderRadius: BorderRadius.circular(30),
                         ),
                         margin:const EdgeInsets.all(10),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
+                          borderRadius: BorderRadius.circular(30),
                           child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,width: 1000,)),
                         
                       ),

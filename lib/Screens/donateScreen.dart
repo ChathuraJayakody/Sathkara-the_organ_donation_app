@@ -21,7 +21,7 @@ class _DonateScreenState extends State<DonateScreen> {
         }, icon:const Icon(Icons.arrow_back_ios_new,color: Colors.white,)),
         elevation: 1,
         backgroundColor:const Color.fromRGBO(1,31,75, 1),
-        title:const Text("Helth Care",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.white),),
+        title:const Text("Sathkara",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.white),),
         centerTitle: true,
       ),
 
@@ -37,7 +37,7 @@ class _DonateScreenState extends State<DonateScreen> {
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 50,bottom: 15),
-                child: SizedBox(
+                child: Container(
                   width: 200,
                   height: 190,
                   child: Stack(
@@ -75,7 +75,7 @@ class _DonateScreenState extends State<DonateScreen> {
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 15),
-              child: SizedBox(
+              child: Container(
                 width: 200,
                 height: 190,
                 
