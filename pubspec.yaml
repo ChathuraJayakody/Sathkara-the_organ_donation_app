@@ -46,10 +46,7 @@ dependencies:
   intl: ^0.20.1
   hive_flutter: ^1.1.0
   lottie: ^3.3.1
-<<<<<<< HEAD
   cloud_firestore: ^5.6.1
-=======
->>>>>>> 732865159a93954da0db15f86b66e14610632a3d
   get: ^4.6.6
   google_maps_flutter: ^2.10.0
   geocoding: ^3.0.0
