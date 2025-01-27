@@ -53,7 +53,7 @@ class MyDrawer extends StatelessWidget {
                   title: const Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
                     // Navigate to Home
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
                   },
                 ),
                 ListTile(
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
                   title: const Text("About Us", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
                     // Navigate to About Us
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutUs()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const AboutUs()));
                   },
                 ),
                 const Divider(height: 20, thickness: 1),
