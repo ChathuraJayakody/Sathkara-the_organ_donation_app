@@ -11,7 +11,7 @@ class MapController extends GetxController {
       Marker(
         markerId: MarkerId(position.toString()),
         position: position,
-        infoWindow: InfoWindow(title: "Hospital Location"),
+        infoWindow: const InfoWindow(title: "Hospital Location"),
       ),
     );
   }

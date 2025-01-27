@@ -22,8 +22,8 @@ class MapPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${hospitalName} Location',
-        style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text('$hospitalName Location',
+        style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.blue,
       ),
