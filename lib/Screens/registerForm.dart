@@ -31,7 +31,15 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   
   final _formkey = GlobalKey<FormState>();
 
-  final TextEditingController _dateController = TextEditingController();
+  TextEditingController _fullNameController = TextEditingController();
+  TextEditingController _idNumberController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _medicalConditionController = TextEditingController();
+  TextEditingController _previousSurgeriesController = TextEditingController();
+  TextEditingController _reasonController = TextEditingController();
+  
+  TextEditingController _dateController = TextEditingController();
   
 
   Future<void> _selectDate(BuildContext context) async {
