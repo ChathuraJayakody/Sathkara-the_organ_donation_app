@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         margin:const EdgeInsets.all(10),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
-                          child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 200,width: 1000,)),
+                          child: Image.asset(images[pagePosition],fit: BoxFit.cover,height: 170,width: 1000,)),
                         
                       ),
                     ],
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
             child:const Text(
               "We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
-              fontSize: 17,
+              fontSize: 12,
               color: Colors.white,
               fontWeight: FontWeight.w600
               ),
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: EdgeInsets.only(top: mqHeight*0.04),
-            child: Image.asset("assets/Images/logo3.png",width: 180,),
+            child: Image.asset("assets/Images/logo3.png",width: 150,),
           ),
           Padding(
             padding: EdgeInsets.only(bottom: mqHeight*0.03,top: mqHeight*0.04),
