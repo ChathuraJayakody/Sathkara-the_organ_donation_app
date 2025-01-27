@@ -9,13 +9,14 @@ class Findorganpage extends StatefulWidget {
 }
 
 class _FindorganpageState extends State<Findorganpage> {
-  List<Map<String, String>> organList = [
-    {'organ': 'Heart', 'hospital': 'Kandy Hospital', 'contact': '0771234567'},
-    {'organ': 'Eye', 'hospital': 'Colombo Hospital', 'contact': '0112233445'},
-    {'organ': 'Kidney', 'hospital': 'Galle Hospital', 'contact': '0913344556'},
-    {'organ': 'Liver', 'hospital': 'Jaffna Hospital', 'contact': '0214455667'},
-    {'organ': 'Lung', 'hospital': 'Matara Hospital', 'contact': '0415566778'},
+  List<Map<String, dynamic>> organList = [
+    {'organ': 'Heart', 'hospital': 'Kandy Hospital', 'contact': '0771234567', 'latitude': 7.28652, 'longitude': 80.63142},
+    {'organ': 'Eye', 'hospital': 'Colombo Hospital', 'contact': '0112233445', 'latitude': 6.919144, 'longitude': 79.868027},
+    {'organ': 'Kidney', 'hospital': 'Galle Hospital', 'contact': '0913344556', 'latitude': 6.066531, 'longitude': 80.225569},
+    {'organ': 'Liver', 'hospital': 'Jaffna Hospital', 'contact': '0214455667', 'latitude': 9.665972, 'longitude': 80.014722},
+    {'organ': 'Lung', 'hospital': 'Matara Hospital', 'contact': '0415566778', 'latitude': 5.9477, 'longitude': 80.5496},
   ];
+
   @override
   Widget build(BuildContext context) {
     double mqWidth = MediaQuery.of(context).size.width;
@@ -49,7 +50,6 @@ class _FindorganpageState extends State<Findorganpage> {
                       Icons.search,
                       color: Colors.black,
                       size: 30,
-                      
                     ),
                   ),
                   border: const OutlineInputBorder(
@@ -57,7 +57,6 @@ class _FindorganpageState extends State<Findorganpage> {
                     borderRadius: BorderRadius.all(Radius.circular(50),
                     ),
                   ),
-                  
                   hintStyle: TextStyle(
                     color: const Color.fromARGB(255, 0, 0, 0),
                     fontSize: mqHeight * 0.025,
@@ -67,7 +66,7 @@ class _FindorganpageState extends State<Findorganpage> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: ListView.builder(
                   itemCount: organList.length,
                   itemBuilder: (context, index) {
@@ -78,12 +77,22 @@ class _FindorganpageState extends State<Findorganpage> {
                         height: mqHeight * 0.13,
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.black, width: 1.5),
-                          color: Color.fromARGB(255, 153, 198, 212),
+                          color: const Color.fromARGB(255, 153, 198, 212),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
+                            // Navigate to the map page and pass latitude, longitude, and hospital name
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MapPage(
+                                  latitude: organList[index]['latitude'],
+                                  longitude: organList[index]['longitude'],
+                                  hospitalName: organList[index]['hospital'],
+                                ),
+                              ),
+                            );
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

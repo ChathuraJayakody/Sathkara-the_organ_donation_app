@@ -1,29 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:organ_donation_app/controller/map_controller.dart';
-import 'package:organ_donation_app/widgets/custom_map.dart';
-
+import 'package:get/get.dart';
 
 class MapPage extends StatelessWidget {
-  final TextEditingController searchController = TextEditingController();
+  final double latitude;
+  final double longitude;
+  final String hospitalName;
 
+  const MapPage({
+    super.key,
+    required this.latitude,
+    required this.longitude,
+    required this.hospitalName,
+  });
 
   @override
   Widget build(BuildContext context) {
-    Get.put(MapController(),);
-    final MapController mapController = MapController();
-    
+    // Use MapController to manage map and zoom
+    final MapController mapController = Get.put(MapController());
+
     return Scaffold(
-      appBar: AppBar(title: Text("Kandy Hospital",
-        
+      appBar: AppBar(
+        title: Text('${hospitalName} Location',
+        style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
-      body: Column(children: [
-      
-        Expanded(child: CustomMap(),
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(latitude, longitude),
+          zoom: 10.0, // Initial zoom level
         ),
-      ],
+        onMapCreated: (controller) {
+          // Trigger the zoom animation on map creation
+          mapController.animateCameraToLocation(controller, LatLng(latitude, longitude));
+        },
+        markers: {
+          Marker(
+            markerId: MarkerId(hospitalName),
+            position: LatLng(latitude, longitude),
+            infoWindow: InfoWindow(title: hospitalName),
+          ),
+        },
       ),
     );
   }
