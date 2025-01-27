@@ -15,13 +15,13 @@ class AboutUs extends StatelessWidget {
             color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
-        backgroundColor: const Color.fromRGBO(1, 31, 75, 1),
+        backgroundColor: const Color.fromARGB(255, 1, 37, 91),
         centerTitle: true,
       ),
       body: Container(
         alignment: Alignment.topCenter,
         decoration: const BoxDecoration(
-          color: Color.fromRGBO(44, 41, 77, 1),
+          color: Color.fromRGBO(32, 45, 50, 1),
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -44,7 +44,7 @@ class AboutUs extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
-                    color: Color.fromARGB(221, 255, 255, 255),
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   textAlign: TextAlign.center,
                 ),

@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
            Padding(
             padding: EdgeInsets.only(left: mqWidth*0.06,right: mqWidth*0.06),
             child:const Text(
-              "We're here to bridge the gap between those in need and compassionate donors. Health Care app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
+              "We're here to bridge the gap between those in need and compassionate donors. Sathkara app is designed to streamline the organ donation process, connecting hospitals directly with available donors swiftly and efficiently. Save precious time and lives with our easy-to-use platform. Let's work together to build a healthier Sri Lanka.",
             style: TextStyle(
               fontSize: 12,
               color: Colors.white,
