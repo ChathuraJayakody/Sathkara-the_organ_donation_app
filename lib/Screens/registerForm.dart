@@ -344,56 +344,59 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                       height: 20,
                     ),
                     
-                    SizedBox(
-                      width: 200,
-                      height: 50,
-                      child: ElevatedButton(onPressed: () async{
-                        if(_formkey.currentState!.validate() && _selectedBloodType != 'Select Blood Type' && _selectedOrganType != 'Select Organ Type'){
-                          
-                          await Saveorgandonardetails().addOrganDonarDetails(
-                            _fullNameController.text,
-                            _idNumberController.text,
-                            _addressController.text,
-                            _phoneController.text,
-                            _selectedDate,
-                            _medicalConditionController.text,
-                            _selectedBloodType,
-                            _previousSurgeriesController.text,
-                            _selectedOrganType,
-                            _reasonController.text
-                          );
-        
-                          _fullNameController.clear();
-                          _idNumberController.clear();
-                          _addressController.clear();
-                          _phoneController.clear();
-                          _medicalConditionController.clear();
-                          _previousSurgeriesController.clear();
-                          _reasonController.clear();
-                          _selectedDate = DateTime.now();
-                          _selectedBloodType = 'Select Blood Type';
-                          _selectedOrganType = 'Select Organ Type';
-        
-                          
-                          openDialog(context);
-                        }
-        
-                        if(_selectedBloodType == 'Select Blood Type' || _selectedOrganType == 'Select Organ Type'){
-                          Fluttertoast.showToast(
-                            msg: "Please Select Blood Type And Organ Type",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 2,
-                            backgroundColor: Colors.red,
-                            textColor: Colors.white,
-                            fontSize: 16.0
-                          );
-                        }
-                          
-                      },
-                      style: const ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))
-                      ), child: const Text("SUBMIT",style: TextStyle(color: Colors.white),),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: SizedBox(
+                        width: 200,
+                        height: 50,
+                        child: ElevatedButton(onPressed: () async{
+                          if(_formkey.currentState!.validate() && _selectedBloodType != 'Select Blood Type' && _selectedOrganType != 'Select Organ Type'){
+                            
+                            await Saveorgandonardetails().addOrganDonarDetails(
+                              _fullNameController.text,
+                              _idNumberController.text,
+                              _addressController.text,
+                              _phoneController.text,
+                              _selectedDate,
+                              _medicalConditionController.text,
+                              _selectedBloodType,
+                              _previousSurgeriesController.text,
+                              _selectedOrganType,
+                              _reasonController.text
+                            );
+                              
+                            _fullNameController.clear();
+                            _idNumberController.clear();
+                            _addressController.clear();
+                            _phoneController.clear();
+                            _medicalConditionController.clear();
+                            _previousSurgeriesController.clear();
+                            _reasonController.clear();
+                            _selectedDate = DateTime.now();
+                            _selectedBloodType = 'Select Blood Type';
+                            _selectedOrganType = 'Select Organ Type';
+                              
+                            
+                            openDialog(context);
+                          }
+                              
+                          if(_selectedBloodType == 'Select Blood Type' || _selectedOrganType == 'Select Organ Type'){
+                            Fluttertoast.showToast(
+                              msg: "Please Select Blood Type And Organ Type",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                            );
+                          }
+                            
+                        },
+                        style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))
+                        ), child: const Text("SUBMIT",style: TextStyle(color: Colors.white),),
+                        ),
                       ),
                     )
                       ],
@@ -411,68 +414,72 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 Future openDialog(BuildContext context) => showDialog(
   context: context,
   builder: (context)=>  AlertDialog(
-    title: const Center(child: Text("Terms and Conditions")),
-    content: Center(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
+    title: const Center(child: Text("Terms and Conditions",
+    style: TextStyle(
+      fontSize: 20
+    ),
+    )),
+    content: Padding(
+      padding: const EdgeInsets.all(5),
+      child: SingleChildScrollView(
         child: Column(
           children: [
             
-            const Text("Donors must:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15,color: Colors.red),),
+            const Text("Donors must:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15,color: Colors.red),textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("1. Be at least 18 years old."),
+            const Text("1. Be at least 18 years old.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("2. Be in good physical and mental health."),
+            const Text("2. Be in good physical and mental health.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("3. Not have any medical conditions that would make donation unsafe for the Donor or the recipient."),
+            const Text("3. Not have any medical conditions that would make donation unsafe for the Donor or the recipient.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("4. Not have any infectious diseases that could be transmitted through organ donation."),
+            const Text("4. Not have any infectious diseases that could be transmitted through organ donation.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("5. Not be pregnant or breastfeeding."),
+            const Text("5. Not be pregnant or breastfeeding.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("6. Not have a history of substance abuse or addiction."),
+            const Text("6. Not have a history of substance abuse or addiction.",textAlign: TextAlign.start),
              const SizedBox(
               height: 10,
             ),
-            const Text("8. Understand the risks and benefits of organ donation."),
+            const Text("8. Understand the risks and benefits of organ donation.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("9. Understand the surgical procedure involved in organ donation."),
+            const Text("9. Understand the surgical procedure involved in organ donation.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
              const SizedBox(
               height: 10,
             ),
-            const Text("10. Understand the potential consequences of organ donation, including the risk of complications or death."),
+            const Text("10. Understand the potential consequences of organ donation, including the risk of complications or death.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("11. Be aware of the alternatives to organ donation."),
+            const Text("11. Be aware of the alternatives to organ donation.",textAlign: TextAlign.start),
             const SizedBox(
               height: 10,
             ),
-            const Text("12. Make a voluntary decision to donate an organ without coercion or undue influence."),
+            const Text("12. Make a voluntary decision to donate an organ without coercion or undue influence.",textAlign: TextAlign.start),
             
             const SizedBox(
               height: 30,
             ),
-
+            
             ElevatedButton(onPressed: () {
-
+            
                   
                   Navigator.of(context).pop();
                   
