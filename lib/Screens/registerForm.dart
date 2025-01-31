@@ -373,14 +373,17 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                             _previousSurgeriesController.clear();
                             _reasonController.clear();
                             _selectedDate = DateTime.now();
-                            _selectedBloodType = 'Select Blood Type';
-                            _selectedOrganType = 'Select Organ Type';
+                            setState(() {
+                              _selectedBloodType = 'Select Blood Type';
+                              _selectedOrganType = 'Select Organ Type';
+                            });
+                            
                               
                             
                             openDialog(context);
                           }
                               
-                          if(_selectedBloodType == 'Select Blood Type' || _selectedOrganType == 'Select Organ Type'){
+                          else if(_selectedBloodType == 'Select Blood Type' || _selectedOrganType == 'Select Organ Type'){
                             Fluttertoast.showToast(
                               msg: "Please Select Blood Type And Organ Type",
                               toastLength: Toast.LENGTH_SHORT,
