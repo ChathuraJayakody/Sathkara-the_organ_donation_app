@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
 import 'package:organ_donation_app/Screens/SettingPage.dart';
 import 'package:organ_donation_app/Screens/splash_screen.dart';
-import 'package:organ_donation_app/theme/ThemeProvider.dart'; // ✅ Import ThemeProvider
+import 'package:organ_donation_app/theme/ThemeProvider.dart'; //  Import ThemeProvider
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -16,7 +16,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Themeprovider()), // ✅ Add ThemeProvider
+        ChangeNotifierProvider(create: (context) => Themeprovider()), //  Add ThemeProvider
       ],
       child: const MyApp(),
     ),
@@ -36,9 +36,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: themeProvider.themeData, // ✅ Apply dynamic theme
-          //home: isLoggedIn ? const HomePage() : const SplashScreen(),
-          home: SettingPage(),
+          theme: themeProvider.themeData, //  Apply dynamic theme
+          home: isLoggedIn ? const HomePage() : const SplashScreen(),
         );
       },
     );
