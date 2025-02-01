@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:organ_donation_app/Services/saveOrganDonarDetails.dart';
+import 'package:organ_donation_app/theme/ThemeProvider.dart';
+import 'package:provider/provider.dart';
 
 class RegisterFormPage extends StatefulWidget {
   const RegisterFormPage({super.key});
@@ -85,14 +87,17 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    
+    final themeProvider = Provider.of<Themeprovider>(context);
+    final bool isDarkMode = themeProvider.isDarkMode;
     return  Scaffold(
       backgroundColor: const Color.fromRGBO(179,205,224,1),
       body: Container(
-        decoration:const BoxDecoration(
-          image: DecorationImage(
+        decoration:BoxDecoration(
+          image: isDarkMode ? const DecorationImage(
+            image: AssetImage('assets/Images/image.png'),
+            fit: BoxFit.cover,) :
+          
+          const DecorationImage(
             image: AssetImage('assets/Images/background_image.jpg'),
             fit: BoxFit.cover,)
         ),
@@ -125,9 +130,11 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                             }
                             return null;
                           },
-                          decoration:const InputDecoration(
-                            label: Text("Full Name Of Donar"),
-                            border: OutlineInputBorder()
+                          decoration: InputDecoration(
+                            label: Text("Full Name Of Donar",
+                            style: isDarkMode ? const TextStyle(color: Colors.white) : TextStyle(color: Colors.black),),
+                            border: const OutlineInputBorder(
+                            )
                           ),
                         ),
                     
@@ -396,8 +403,8 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                           }
                             
                         },
-                        style: const ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))
+                        style: ButtonStyle(
+                          backgroundColor:  isDarkMode ? WidgetStatePropertyAll(Colors.grey.shade700) : WidgetStatePropertyAll(Color.fromRGBO(1,31,75,1))
                         ), child: const Text("SUBMIT",style: TextStyle(color: Colors.white),),
                         ),
                       ),

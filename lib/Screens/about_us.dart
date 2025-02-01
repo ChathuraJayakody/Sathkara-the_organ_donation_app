@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:organ_donation_app/theme/ThemeProvider.dart';
+import 'package:provider/provider.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeprovider = Provider.of<Themeprovider>(context);
+    final bool isDarkMode = themeprovider.isDarkMode; 
+    // final isDarkMode = Themeprovider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -15,13 +20,13 @@ class AboutUs extends StatelessWidget {
             color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 1, 37, 91),
+        backgroundColor: isDarkMode ? Colors.black : const Color.fromRGBO(1, 31, 75, 1),
         centerTitle: true,
       ),
       body: Container(
         alignment: Alignment.topCenter,
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(32, 45, 50, 1),
+        decoration: BoxDecoration(
+          color: isDarkMode ? Colors.grey.shade900 : const Color.fromRGBO(1, 31, 75, 1),
         ),
         child: SingleChildScrollView(
           child: Padding(
