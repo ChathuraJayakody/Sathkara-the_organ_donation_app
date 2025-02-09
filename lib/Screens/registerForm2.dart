@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:intl/intl.dart';
+import 'package:organ_donation_app/Services/saveBloodDonarDetails.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,11 +16,20 @@ class BloodDonationFormPage extends StatefulWidget {
 class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
   String _selectedBloodType = 'Select Blood Type';
   String _selectedGender = 'Select Gender';
+   DateTime _selectedBirthDate = DateTime.now();
+   DateTime _selectedLastDonatedDate = DateTime.now();
 
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _idController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _birthDateController = TextEditingController();
   final TextEditingController _dateLastDonated = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _medicalConditionController = TextEditingController();
+  final TextEditingController _previousSurgeriesController = TextEditingController();
+  final TextEditingController _anyDiseasesController = TextEditingController();
   DateTime? _selectedDate;
   DateTime? _lastDonatedDate;
 
@@ -52,7 +62,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
       setState(() {
         _selectedDate = picked;
 
-        _dateController.text = DateFormat.yMd().format(_selectedDate!);
+        _birthDateController.text = DateFormat.yMd().format(_selectedDate!);
       });
     }
   }
@@ -110,6 +120,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: _nameController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -131,6 +142,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+                        controller: _idController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -152,6 +164,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+                        controller: _addressController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -173,6 +186,13 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your contact number';
+                          }
+                          return null;
+                        },
+                        controller: _phoneController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -192,6 +212,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         children: [
                           Expanded(
                             child: TextFormField(
+                              
                               onChanged: (value) {
                                 setState(() {
                                   if (value.isNotEmpty) {
@@ -205,7 +226,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                                 }
                                 return null;
                               },
-                              controller: _dateController,
+                              controller: _birthDateController,
                               decoration: InputDecoration(
                                 label: const Text("Date Of Birth"),
                                 border: const OutlineInputBorder(),
@@ -242,6 +263,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                       ),
                       const Text("Medical History Of Donor"),
                       TextFormField(
+                        controller: _medicalConditionController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -283,6 +305,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+                        controller: _previousSurgeriesController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -337,6 +360,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+                        controller: _anyDiseasesController,
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -366,15 +390,50 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                           width: 200,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async{
                               if (_formKey.currentState!.validate() &&
                                       _selectedBloodType !=
-                                          'Select Blood Type' ||
+                                          'Select Blood Type' &&
                                   _selectedGender != 'Select Gender') {
+
+                                await Saveblooddonardetails().addBloodDonarDetails(
+                                  _nameController.text,
+                                  _idController.text,
+                                  _addressController.text,
+                                  _phoneController.text,
+                                  _selectedBirthDate,
+                                  _selectedGender,
+                                  _medicalConditionController.text,
+                                  _selectedBloodType,
+                                  _previousSurgeriesController.text,
+                                  _selectedLastDonatedDate,
+                                  _anyDiseasesController.text,
+
+                                );
+
+                                
+
+                                _nameController.clear();
+                                _idController.clear();
+                                _addressController.clear();
+                                _phoneController.clear();
+                                _medicalConditionController.clear();
+                                _previousSurgeriesController.clear();
+                                _anyDiseasesController.clear();
+                                _birthDateController.clear();
+                                _dateLastDonated.clear();
+                                _selectedBirthDate = DateTime.now();
+                                _selectedLastDonatedDate = DateTime.now();
+
+                                setState(() {
+                                  _selectedGender = 'Select Gender';
+                                  _selectedBloodType = 'Select Blood Type';
+                                });
+
                                 openDialog(context);
                               }
 
-                              if (_selectedBloodType == 'Select Blood Type' ||
+                              else if (_selectedBloodType == 'Select Blood Type' ||
                                   _selectedGender == 'Select Gender') {
                                 Fluttertoast.showToast(
                                     msg:
@@ -475,6 +534,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        Fluttertoast.showToast(msg: "Donor Registered Successfully", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 2, backgroundColor: Colors.green, textColor: Colors.white, fontSize: 16.0);
                         Navigator.of(context).pop();
                       },
                       style: const ButtonStyle(

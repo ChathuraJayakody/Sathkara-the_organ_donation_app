@@ -34,7 +34,7 @@ class MyDrawer extends StatelessWidget {
               "C.Jayakody",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            accountEmail: const Text("pjayakody@gmail.com"),
+            accountEmail: const Text("chathura@gmail.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: ClipOval(

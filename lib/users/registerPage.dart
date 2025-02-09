@@ -131,6 +131,9 @@ TextEditingController passwordController = TextEditingController();
                   width: 500,
                   height: 60,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 1, 31, 75),
+                    ),
                     onPressed: () async{
                       dynamic result = await _auth.registerWithEmailAndPassword(email, password);
 
@@ -143,7 +146,7 @@ TextEditingController passwordController = TextEditingController();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Loginpage(),));
                       }
                     },
-                    child: const Text("Register",style: TextStyle(fontSize: 20),
+                    child: const Text("Register",style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
                 ),

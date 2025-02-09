@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:organ_donation_app/Models/organDonarDetails.dart';
 
 class Saveorgandonardetails {
@@ -33,7 +34,6 @@ class Saveorgandonardetails {
       // add the donarDetails document to Firestore
       await _collectionReference.add(donarData);
 
-      print("Data saved successfully");
 
     }catch(e){
       print("Error $e");
