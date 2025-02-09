@@ -1,0 +1,463 @@
+[33mcommit 3bc76b03cc470b6b99cc82fc05df1aa06faddb24[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mHirantha[m[33m)[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Feb 10 03:07:26 2025 +0530
+
+    updated
+
+[33mcommit 0f7392a17ceb13932686c4bd700b3d697f238aa1[m[33m ([m[1;31morigin/Hirantha[m[33m)[m
+Merge: e6f1264 b7b54b1
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Feb 10 02:13:54 2025 +0530
+
+    Merge branch 'main' into Hirantha
+
+[33mcommit e6f1264b2491573093bc00e1138a99a78365250e[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Feb 10 02:05:08 2025 +0530
+
+    Created collection on firebase to store blood donar details
+
+[33mcommit e1706572ee6a9d152a20147f718d531af676a90d[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Sun Feb 9 21:59:01 2025 +0530
+
+    commit
+    
+    commit
+
+[33mcommit b7b54b1bd03d079a4e9b3c5797fdc3aac11cbe50[m
+Merge: 22ce406 96fcc08
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Sat Feb 1 21:28:34 2025 +0530
+
+    Merge pull request #16 from ChathuraJayakody/sandeepa
+    
+    Update main.dart
+
+[33mcommit 96fcc088095604888822e1677d963d7acaa0c25c[m[33m ([m[1;31morigin/sandeepa[m[33m)[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Sat Feb 1 21:28:05 2025 +0530
+
+    Update main.dart
+
+[33mcommit 22ce406ef388a77c55bf7e6e4b9f8466aeb3547b[m
+Merge: d90a334 94ea7cd
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Sat Feb 1 21:06:50 2025 +0530
+
+    Merge pull request #15 from ChathuraJayakody/sandeepa
+    
+    set dark mode
+
+[33mcommit 94ea7cdaf156ae830f6ff6f9573a2a2bc75a7ef9[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Sat Feb 1 21:06:16 2025 +0530
+
+    set dark mode
+
+[33mcommit d90a334ffe540d28847fb78eea45f4e8da778d25[m
+Merge: ec22531 9007cca
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Fri Jan 31 23:50:19 2025 +0530
+
+    Merge pull request #14 from ChathuraJayakody/sandeepa
+    
+    Update registerForm.dart
+
+[33mcommit 9007cca8819f1936a37190e6c951e246a64d2b6c[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Fri Jan 31 23:49:22 2025 +0530
+
+    Update registerForm.dart
+
+[33mcommit ec225317812ef417783cb65757c4c6dadf98b8c3[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Tue Jan 28 02:08:24 2025 +0530
+
+    map updated
+
+[33mcommit acdd07309934e430f021f5df26d53dc5a062bda1[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Tue Jan 28 01:22:06 2025 +0530
+
+    Map Updated
+
+[33mcommit 6b55b0a4685af381a2639e8f11b76b7b695ae392[m
+Merge: 968313e b5581cc
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Tue Jan 28 01:17:50 2025 +0530
+
+    Resolved merge conflict in pubspec.yaml
+
+[33mcommit 968313e72397d8d725184f13c14b8c4c24075672[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Tue Jan 28 01:04:35 2025 +0530
+
+    Map Updated
+
+[33mcommit b5581ccd6064d4f3f73d645195b183a1ab06e6f0[m
+Merge: 89c4c00 36bf897
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Tue Jan 28 00:57:52 2025 +0530
+
+    Merge pull request #13 from ChathuraJayakody/sandeepa
+    
+    Sandeepa
+
+[33mcommit 36bf897401d05aaacd162375098d8efcd24aef12[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Tue Jan 28 00:57:25 2025 +0530
+
+    decorate  pages
+
+[33mcommit 08e9a42f54f32e47601e9e52a3e09f4caf328414[m
+Merge: 1da5439 16d298e
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 27 22:26:53 2025 +0530
+
+    Merge branch 'main' into sandeepa
+
+[33mcommit 89c4c00a486ed20084da1281b0190652beabd9c7[m
+Merge: 16d298e 1da5439
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 27 22:18:35 2025 +0530
+
+    Merge pull request #12 from ChathuraJayakody/sandeepa
+    
+    Sandeepa
+
+[33mcommit 16d298e328dfdf7799567c80a29d3d4a8ed4cd0c[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 27 22:07:02 2025 +0530
+
+    update  dependency
+
+[33mcommit ab27b5828e07aadc0e2a3704a69b4bc684d4b874[m
+Merge: 65627aa 9458db9
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 21:18:30 2025 +0530
+
+    Merge branch 'main' into Hirantha
+
+[33mcommit 9458db95c2087cb4d17904af5331c7666e33fc62[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 21:17:57 2025 +0530
+
+    Restored lib/Screens/registerForm.dart from commit e1f9d8bd
+
+[33mcommit 65627aaf7a86fc9824cf6b4887568c34cef95ca4[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 21:11:04 2025 +0530
+
+    updated
+
+[33mcommit d669e80ebf47059bb7ed64a5ab8ac32661bf5b96[m
+Merge: 2a7c871 7328651
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 20:41:03 2025 +0530
+
+    updated
+
+[33mcommit 2a7c87183f379c11de2fc4055444a2904fd28bb2[m
+Merge: 1ce8f8f 586c21c
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 20:30:11 2025 +0530
+
+    Merge branch 'hirantha'
+
+[33mcommit 586c21c0eb12a2ae46ec022df1562e9b4e7a9154[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 27 20:26:31 2025 +0530
+
+    updated
+
+[33mcommit e1f9d8bd3837b3af176b849a2bb516d527a8905f[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Sun Jan 26 13:37:16 2025 +0530
+
+    add background image to pages
+
+[33mcommit 1da543942539eabbc4968cf24c832f27b8bff28b[m
+Merge: 6c9bfe6 7328651
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Wed Jan 22 03:00:13 2025 +0530
+
+    Merge branch 'main' into sandeepa
+
+[33mcommit 732865159a93954da0db15f86b66e14610632a3d[m
+Merge: 68ad3ff b1addf3
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Wed Jan 22 02:58:51 2025 +0530
+
+    updated
+
+[33mcommit 6c9bfe6aa50dabe2f9b1f541d05ebf9499465526[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Wed Jan 22 02:53:05 2025 +0530
+
+    updated
+
+[33mcommit dfc912d10d4c35ab9a6b7458fcb3842c87830cc3[m
+Merge: 66ac049 058d193
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Wed Jan 22 02:39:53 2025 +0530
+
+    update find organ page
+
+[33mcommit b1addf3eaa96f12d494caa09f64d4ec7ffa71aba[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Wed Jan 22 02:38:09 2025 +0530
+
+    updated
+
+[33mcommit 68ad3ff198a6740524e7ab9d28f2b20ff7dd1888[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Wed Jan 22 02:05:16 2025 +0530
+
+    updated
+
+[33mcommit 058d1934ba2e89d42d760f3bd9c3d5fd03d7f785[m
+Merge: 6c5ceeb 9e441ba
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Wed Jan 22 02:01:03 2025 +0530
+
+    added find organ page
+
+[33mcommit 6c5ceeb8f4e58ccb565ab7c32b49b7d1ea8ed0af[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Wed Jan 22 01:49:14 2025 +0530
+
+    create find organ page
+
+[33mcommit 9e441ba2815de690aaf25f466d3e48b831ad9ec2[m
+Merge: 1aed323 c0d930c
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 18:29:24 2025 +0530
+
+    Merge chathura branch into main
+
+[33mcommit 1aed323c617e3ca87e2e97546c8cf6268520d77b[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 18:12:06 2025 +0530
+
+    updated
+
+[33mcommit c0d930c5e76f8aa3ec9472297d483cc947e413b5[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 18:04:47 2025 +0530
+
+    add google map
+
+[33mcommit 1ce8f8ff11a96795931b1713520437bbe269fd73[m
+Merge: 3e175a5 fb4d493
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 20 17:50:28 2025 +0530
+
+    Merge pull request #8 from ChathuraJayakody/Hirantha
+    
+    Create firesore data base and save Organ Donar Details on DB
+
+[33mcommit fb4d493da859923718e2c8cee4abd5cbcf558c97[m
+Merge: cd203bb 3e175a5
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 20 17:50:10 2025 +0530
+
+    Merge branch 'main' into Hirantha
+
+[33mcommit cd203bbf6df881756d84ed84d9e1ec1f619b17f4[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Mon Jan 20 17:23:39 2025 +0530
+
+    Create firesore data base and save Organ Donar Details on DB
+
+[33mcommit 3e175a5d570c1c3310472e98cebb99dab65b1438[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 20 02:22:10 2025 +0530
+
+    added name as chathura piyumal jayakody
+
+[33mcommit 27915f54b982bbb274c66c1e16f3eafefbc0f18b[m
+Merge: d4b15a6 54b5d71
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 02:31:28 2025 +0530
+
+    Merge pull request #6 from ChathuraJayakody/chathura
+    
+    added name as piyumal jayakody
+
+[33mcommit 66ac0494afcc70af37b81def90afd39a7e46c55a[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 20 02:22:10 2025 +0530
+
+    added name as chathura piyumal jayakody
+
+[33mcommit 54b5d717dff0ed21294eb1546b4588cc30c31d23[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 02:14:32 2025 +0530
+
+    added name as piyumal jayakody
+
+[33mcommit d4b15a649f59cf83d7f08a811c1afe2922dbf6f5[m
+Author: Sandeepa-Sadewaka <sadewakasandeepa39@gmail.com>
+Date:   Mon Jan 20 02:05:03 2025 +0530
+
+    change name
+
+[33mcommit 474dcb6db9b8bfdfd7c2f65f66e468103299f2f5[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Mon Jan 20 01:42:03 2025 +0530
+
+    added Find Organ Page
+
+[33mcommit 8a6b924d5ed2d6b8e620e2eb9eb48ee99a99c375[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Sun Jan 19 20:53:14 2025 +0530
+
+    updated
+
+[33mcommit d6fbd9f2afbb1fa16ee9939a494b0f00dd2478a7[m
+Merge: abbb499 74cee14
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 01:26:55 2025 +0530
+
+    Merge pull request #4 from ChathuraJayakody/Hirantha
+    
+    Created Form Validations
+
+[33mcommit 74cee14b4a7f54cb41df1a719f1003c825aff72a[m
+Merge: 9648997 abbb499
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 01:26:41 2025 +0530
+
+    Merge branch 'main' into Hirantha
+
+[33mcommit abbb4999a10f7428c8a788d1ca57ac361f61e5ac[m
+Merge: 1f12115 e1abecb
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 01:18:12 2025 +0530
+
+    Merge pull request #5 from ChathuraJayakody/revert-3-main
+    
+    Revert "Merge pull request #3 from ChathuraJayakody/main"
+
+[33mcommit e1abecb2c0a0208bb20e48411ccc2bd9c119be01[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 01:16:21 2025 +0530
+
+    Revert "Merge pull request #3 from ChathuraJayakody/main"
+
+[33mcommit 96489979bb097a5b9b41b44a708db6e2d9aa801e[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 01:13:55 2025 +0530
+
+    Form validations added
+
+[33mcommit 1f12115b569c5d5789ef2c133824eb677c574839[m
+Merge: 4f812fe e4f8cda
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 00:44:11 2025 +0530
+
+    Merge pull request #3 from HiranthaDissanayake/main
+    
+    Merge pull request #3 from ChathuraJayakody/main
+
+[33mcommit 524b078ef83b553815aed97a2196f7d7bf164b69[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Tue Jan 14 00:41:45 2025 +0530
+
+    Created Form Validations
+
+[33mcommit 4f812fee871bf8f7fd9c136dbcd78a113a936fcc[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Sat Jan 11 12:36:44 2025 +0530
+
+    add Lottie animations
+
+[33mcommit e4f8cdab795dcc0a349344356096e00f044af30f[m
+Merge: 4d4317e 3632c49
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Sat Jan 11 00:13:57 2025 +0530
+
+    Merge pull request #3 from ChathuraJayakody/main
+    
+    Shared Preferences added to save current loging details
+
+[33mcommit 3632c4907611988741ac2b3f9e8353633d3e3646[m
+Merge: 782f1d3 4d4317e
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Fri Jan 10 23:58:48 2025 +0530
+
+    Merge pull request #2 from HiranthaDissanayake/main
+    
+    Merge pull request #2 from ChathuraJayakody/main
+
+[33mcommit 782f1d3bb5279926e3af0fee6b478d1e5f39b9a4[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Fri Jan 10 23:57:44 2025 +0530
+
+    Add Shared Preferences to save current loging details
+
+[33mcommit 4cd1893b09256a29667bd51e5698ae5c7da32633[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Fri Jan 10 15:01:50 2025 +0530
+
+    updated about us
+
+[33mcommit ab1c8c93705526e733ae3da21f7734d615a521a8[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Fri Jan 10 14:18:27 2025 +0530
+
+    Added About Us page
+
+[33mcommit b020dbf4274d993b643ba0c8c2a5ec27ace4a5e6[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Fri Jan 10 11:22:56 2025 +0530
+
+    Added Blood donation register form
+
+[33mcommit 4d4317efb402ff769b6866f7147357bc6ccbc0e7[m
+Merge: 0a1ebc9 a6350bc
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Thu Jan 9 21:39:36 2025 +0530
+
+    Merge pull request #2 from ChathuraJayakody/main
+    
+    Add some Styles
+
+[33mcommit a6350bc5d275bd538afa037e43854f34939c8650[m
+Merge: 1985e6f 0a1ebc9
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Thu Jan 9 21:37:09 2025 +0530
+
+    Merge pull request #1 from HiranthaDissanayake/main
+    
+    Merge pull request #1 from ChathuraJayakody/main
+
+[33mcommit 1985e6f7a900fca6d4d0d21525c4a4486956bf93[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Thu Jan 9 21:27:16 2025 +0530
+
+    Add Some Styles
+    
+    Add Background Image to Home Page and add icon images to Donation page
+
+[33mcommit 0a1ebc9086849bda11f3291cfafcb8f120ecce3d[m
+Merge: 08d93fa 109cb41
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Wed Dec 25 11:01:34 2024 +0530
+
+    Merge pull request #1 from ChathuraJayakody/main
+    
+    UI of drawer created
+
+[33mcommit 109cb410f89286378949a311b98451bba805e631[m
+Author: Hirantha Dissanayake <hiranthamalindu46@gmail.com>
+Date:   Wed Dec 25 10:58:32 2024 +0530
+
+    UI of drawer created
+
+[33mcommit 08d93fa892dfb552692d187456153ff785eb41e3[m
+Author: Chathura Jayakody <chathurajy96@gmail.com>
+Date:   Tue Dec 24 18:42:48 2024 +0530
+
+    first commit
