@@ -371,6 +371,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                               _selectedOrganType,
                               _reasonController.text
                             );
+
                               
                             _fullNameController.clear();
                             _idNumberController.clear();
@@ -489,7 +490,9 @@ Future openDialog(BuildContext context) => showDialog(
             ),
             
             ElevatedButton(onPressed: () {
-            
+
+                Fluttertoast.showToast(msg: "Successfully Organ Donar Registered", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 2, backgroundColor: Colors.green, textColor: Colors.white, fontSize: 16.0);
+
                   
                   Navigator.of(context).pop();
                   
