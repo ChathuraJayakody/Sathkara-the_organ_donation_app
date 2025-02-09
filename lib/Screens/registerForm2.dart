@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:intl/intl.dart';
+
 import 'package:organ_donation_app/Services/saveBloodDonarDetails.dart';
+
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +18,10 @@ class BloodDonationFormPage extends StatefulWidget {
 class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
   String _selectedBloodType = 'Select Blood Type';
   String _selectedGender = 'Select Gender';
+
    DateTime _selectedBirthDate = DateTime.now();
    DateTime _selectedLastDonatedDate = DateTime.now();
+
 
   final _formKey = GlobalKey<FormState>();
 
@@ -63,6 +67,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
         _selectedDate = picked;
 
         _birthDateController.text = DateFormat.yMd().format(_selectedDate!);
+
+        _dateController.text = DateFormat.yMd().format(_selectedDate!);
+
       });
     }
   }
@@ -120,7 +127,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 20,
                       ),
                       TextFormField(
+
                         controller: _nameController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -142,7 +151,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+
                         controller: _idController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -164,7 +175,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+
                         controller: _addressController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -186,6 +199,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your contact number';
@@ -193,6 +207,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                           return null;
                         },
                         controller: _phoneController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -212,7 +227,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              
+
                               onChanged: (value) {
                                 setState(() {
                                   if (value.isNotEmpty) {
@@ -226,7 +241,11 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                                 }
                                 return null;
                               },
+
                               controller: _birthDateController,
+
+                              controller: _dateController,
+
                               decoration: InputDecoration(
                                 label: const Text("Date Of Birth"),
                                 border: const OutlineInputBorder(),
@@ -263,7 +282,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                       ),
                       const Text("Medical History Of Donor"),
                       TextFormField(
+
                         controller: _medicalConditionController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -305,7 +326,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         height: 10,
                       ),
                       TextFormField(
+
                         controller: _previousSurgeriesController,
+
                         onChanged: (value) {
                           setState(() {
                             if (value.isNotEmpty) {
@@ -351,6 +374,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                           suffixIcon: IconButton(
                               onPressed: () => _selectDate2(context),
                               icon: const Icon(Icons.calendar_month_outlined)),
+
                         ),
                       ),
                       const SizedBox(
@@ -382,6 +406,38 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                         ),
                       ),
                       const SizedBox(
+
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        onChanged: (value) {
+                          setState(() {
+                            if (value.isNotEmpty) {
+                              _formKey.currentState!.validate();
+                            }
+                          });
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your infectious diseases';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          label: Text("Do you have any infectious diseases"),
+                          helperText: 'e.g: Hepatitis, HIV',
+                          border: OutlineInputBorder(),
+                          helperStyle: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                      const SizedBox(
+
                         height: 20,
                       ),
                       Padding(
@@ -390,6 +446,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                           width: 200,
                           height: 50,
                           child: ElevatedButton(
+
                             onPressed: () async{
                               if (_formKey.currentState!.validate() &&
                                       _selectedBloodType !=
@@ -434,6 +491,17 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                               }
 
                               else if (_selectedBloodType == 'Select Blood Type' ||
+
+                            onPressed: () {
+                              if (_formKey.currentState!.validate() &&
+                                      _selectedBloodType !=
+                                          'Select Blood Type' ||
+                                  _selectedGender != 'Select Gender') {
+                                openDialog(context);
+                              }
+
+                              if (_selectedBloodType == 'Select Blood Type' ||
+
                                   _selectedGender == 'Select Gender') {
                                 Fluttertoast.showToast(
                                     msg:
@@ -534,7 +602,9 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+
                         Fluttertoast.showToast(msg: "Donor Registered Successfully", toastLength: Toast.LENGTH_SHORT, gravity: ToastGravity.CENTER, timeInSecForIosWeb: 2, backgroundColor: Colors.green, textColor: Colors.white, fontSize: 16.0);
+
                         Navigator.of(context).pop();
                       },
                       style: const ButtonStyle(
