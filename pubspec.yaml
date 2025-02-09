@@ -42,6 +42,7 @@ dependencies:
   firebase_core: ^3.9.0
   loading_indicator: ^3.1.1
   firebase_auth: ^5.3.4
+  provider:
 
   intl: ^0.20.1
   hive_flutter: ^1.1.0
@@ -53,7 +54,6 @@ dependencies:
   get: ^4.6.6
   google_maps_flutter: ^2.10.0
   geocoding: ^3.0.0
-
 
 dev_dependencies:
   flutter_test:

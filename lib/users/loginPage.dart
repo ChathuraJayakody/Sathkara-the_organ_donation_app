@@ -117,6 +117,7 @@ String error = "";
                             error = "Could not signin with incorrect user credintial";
                           });
                         } else{
+                          // ignore: use_build_context_synchronously
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomePage(),));
                         }
                       },
