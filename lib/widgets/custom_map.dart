@@ -22,10 +22,10 @@ class CustomMap extends StatelessWidget {
                   const LatLng(7.28652, 80.63142),
               zoom: 10,
             ),
-            myLocationEnabled: true, // ✅ Shows the blue dot for user's location
-            myLocationButtonEnabled: false, // ✅ Enables "My Location" button (optional)
-            markers: controller.markers, // Keep your existing markers
-            polylines: controller.polylines, // Keep existing route polylines
+            myLocationEnabled: true, 
+            myLocationButtonEnabled: false,
+            markers: controller.markers, 
+            polylines: controller.polylines,
             onTap: (position) {
               controller.setMarker(position, "Custom Location");
               if (controller.userLocation != null) {

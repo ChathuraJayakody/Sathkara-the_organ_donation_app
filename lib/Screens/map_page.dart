@@ -41,17 +41,17 @@ class MapPage extends StatelessWidget {
           return GoogleMap(
             initialCameraPosition: CameraPosition(
               target: controller.userLocation ??
-                  LatLng(latitude, longitude), // Fallback if location fails
+                  LatLng(latitude, longitude), 
               zoom: 10.0,
             ),
-            myLocationEnabled: true, // ✅ Shows the blue dot for user's location
-            myLocationButtonEnabled: false, // ✅ Enables "My Location" button (optional)
-            markers: controller.markers, // Keep your existing markers
-            polylines: controller.polylines, // Keep existing route polylines
+            myLocationEnabled: true, 
+            myLocationButtonEnabled: false, 
+            markers: controller.markers, 
+            polylines: controller.polylines, 
             onMapCreated: (GoogleMapController googleMapController) {
-                controller.markers.clear(); // Clear all previous markers
-                controller.polylines.clear(); // Clear all previous routes
-                controller.update(); // Apply changes
+                controller.markers.clear(); 
+                controller.polylines.clear(); 
+                controller.update(); 
 
                 controller.setMarker(LatLng(latitude, longitude), hospitalName);
 
