@@ -10,7 +10,6 @@ class MapController extends GetxController {
   var polylines = <Polyline>{}.obs;
   LatLng? userLocation;
 
-  // Function to get the user's current location
   Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
@@ -22,7 +21,6 @@ class MapController extends GetxController {
     }
   }
 
-  // Function to set a marker
   void setMarker(LatLng position, String title) {
     markers.add(
       Marker(
@@ -34,19 +32,18 @@ class MapController extends GetxController {
     update();
   }
 
-  // Function to fetch route from OSRM API
   Future<void> getRoute(LatLng destination, GoogleMapController? mapController) async {
     if (userLocation == null) {
       print("Error: User location is null");
       return;
     }
 
-    // Clear previous markers and polylines for a fresh start
+
     markers.clear();
     polylines.clear();
     update();
 
-    // Add markers for start and destination
+
     setMarker(userLocation!, "Your Location");
     setMarker(destination, "Destination");
 
@@ -67,7 +64,6 @@ class MapController extends GetxController {
           final geometry = data['routes'][0]['geometry'];
           final List<LatLng> routePolyline = _decodePolyline(geometry);
 
-          // Add the new route polyline
           polylines.add(
             Polyline(
               polylineId: const PolylineId("route"),
@@ -79,7 +75,6 @@ class MapController extends GetxController {
 
           update();
 
-          // Adjust camera to fit the entire route
           _adjustCameraToRoute(routePolyline, mapController);
         } else {
           print("Error: No route found in OSRM response.");

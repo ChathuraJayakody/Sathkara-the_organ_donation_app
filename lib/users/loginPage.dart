@@ -13,13 +13,10 @@ class Loginpage extends StatefulWidget {
 
 class _LoginpageState extends State<Loginpage> {
 
-// ref for the AuthServices class
 final AuthServices _auth = AuthServices();
 
-// form key
 final _formKey = GlobalKey<FormState>();
 
-// email password states
 String email = "";
 String password = "";
 String error = "";
