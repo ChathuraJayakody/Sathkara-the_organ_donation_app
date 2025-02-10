@@ -2,7 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
 import 'package:organ_donation_app/Services/auth.dart';
+import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:organ_donation_app/users/registerPage.dart';
+import 'package:provider/provider.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -109,6 +111,9 @@ String error = "";
                     width: 500,
                     height: 60,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 1, 31, 75),
+                      ),
                       onPressed: () async{
                         dynamic result = await _auth.signInUsingEmailAndPassword(email, password);
 
@@ -121,7 +126,7 @@ String error = "";
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomePage(),));
                         }
                       },
-                      child: const Text("Login",style: TextStyle(fontSize: 20),),
+                      child: const Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),),
                     ),
                   ),
 

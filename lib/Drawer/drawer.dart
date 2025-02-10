@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
+import 'package:organ_donation_app/Screens/SettingPage.dart';
 import 'package:organ_donation_app/Screens/about_us.dart';
 import 'package:organ_donation_app/Services/auth.dart';
+import 'package:organ_donation_app/theme/ThemeProvider.dart';
+import 'package:provider/provider.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -9,9 +12,10 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<Themeprovider>(context);
+    final isDarkMode = themeProvider.isDarkMode;
     return Drawer(
-      
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? Colors.black : const Color.fromRGBO(179, 205, 224, 1),
       child: Column(
         children: [
           // Drawer Header with user info and gradient background
@@ -30,7 +34,7 @@ class MyDrawer extends StatelessWidget {
               "C.Jayakody",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            accountEmail: const Text("pjayakody@gmail.com"),
+            accountEmail: const Text("chathura@gmail.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: ClipOval(
@@ -60,7 +64,7 @@ class MyDrawer extends StatelessWidget {
                   leading: const Icon(Icons.settings, color: Colors.blueAccent, size: 30),
                   title: const Text("Settings", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
-                    // Navigate to Settings
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>const SettingPage()));
                   },
                 ),
                 ListTile(
