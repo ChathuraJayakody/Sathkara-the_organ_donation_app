@@ -9,7 +9,7 @@ class Saveorgandonardetails {
     FirebaseFirestore.instance.collection('Organ_Donar_Details');
 
   // Function to save user data to Firestore
-   Future<void> addOrganDonarDetails(String name, String id, String address, String contact, DateTime birthDate, String medicalCondition, String bloodType, String previousSurgeries, String organType, String reasonForDonation) async {
+   Future<void> addOrganDonarDetails(String name, String id, String address, String contact, DateTime birthDate,String hospital, String medicalCondition, String bloodType, String previousSurgeries, String organType, String reasonForDonation) async {
     
     try{
 
@@ -21,6 +21,7 @@ class Saveorgandonardetails {
         address: address,
         phoneNum: contact,
         birthDate: birthDate,
+        hospital: hospital,
         medicalCondition: medicalCondition,
         bloodType: bloodType,
         previousSurgeries: previousSurgeries,

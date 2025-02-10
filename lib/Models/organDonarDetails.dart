@@ -6,6 +6,7 @@ class OrganDonarDetails {
   String address;
   String phoneNum;
   DateTime birthDate;
+  String hospital;
   String medicalCondition;
   String bloodType;
   String previousSurgeries;
@@ -19,6 +20,7 @@ class OrganDonarDetails {
     required this.address,
     required this.phoneNum,
     required this.birthDate,
+    required this.hospital,
     required this.medicalCondition,
     required this.bloodType,
     required this.previousSurgeries,
@@ -35,6 +37,7 @@ class OrganDonarDetails {
       address:  doc['address'],
       phoneNum: doc['phoneNum'],
       birthDate: doc['birthDate'].toDate(),
+      hospital: doc['hospital'],
       medicalCondition: doc['medicalCondition'],
       bloodType: doc['bloodType'],
       previousSurgeries: doc['previousSurgeries'],
@@ -51,6 +54,7 @@ class OrganDonarDetails {
     'address': address,
     'phoneNum': phoneNum,
     'birthDate': birthDate,
+    'hospital': hospital,
     'medicalCondition': medicalCondition,
     'bloodType': bloodType,
     'previousSurgeries': previousSurgeries,

@@ -7,7 +7,7 @@ class Saveblooddonardetails {
   // Create a new document reference
   final CollectionReference _collectionReference = FirebaseFirestore.instance.collection('Blood Donar Details');
 
-  Future<void> addBloodDonarDetails(String name, String idNum, String address, String phoneNum, DateTime dateOfBirth, String gender, String medicalCondition, String bloodType, String previousSurgeries, DateTime lastDonatedDate, String anyDiseases) async {
+  Future<void> addBloodDonarDetails(String name, String idNum, String address, String phoneNum, DateTime dateOfBirth, String gender, String hospital, String medicalCondition, String bloodType, String previousSurgeries, DateTime lastDonatedDate, String anyDiseases) async {
     
 
     try{
@@ -21,6 +21,7 @@ class Saveblooddonardetails {
         phoneNum: phoneNum,
         dateOfBirth: dateOfBirth,
         gender: gender,
+        hospital: hospital,
         medicalCondition: medicalCondition,
         bloodType: bloodType,
         previousSurgeries: previousSurgeries,
