@@ -6,12 +6,16 @@ import 'package:organ_donation_app/Screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase
   await Firebase.initializeApp();
 
-    // Initialize Hive
+  // Initialize Hive and set up the storage path
   await Hive.initFlutter();
+
+  // Open the authBox
   await Hive.openBox('authBox');
-  
+
   runApp(const MyApp());
 }
 
@@ -35,9 +39,6 @@ class MyApp extends StatelessWidget {
         ),
       ),  
       home: isLoggedIn ? const HomePage() : const SplashScreen(), 
-      // home: Findorganpage(),
-      // home: const Findorganpage(),
     );
   }
 }
-
