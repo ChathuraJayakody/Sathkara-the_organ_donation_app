@@ -27,6 +27,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 
   }
 
+  String _selectedHospital = 'Select Nearby Hospital';
   String _selectedBloodType = 'Select Blood Type';
   String _selectedOrganType = 'Select Organ Type';
   DateTime _selectedDate = DateTime.now();
@@ -55,6 +56,15 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
       });
     }
   }
+
+  final List<String> _hospitals = [
+    'Select Nearby Hospital',
+    'Kandy Hospital',
+    'Colombo Hospital',
+    'Galle Hospital',
+    'Jaffna Hospital',
+    'Matara Hospital',
+  ];
 
 
 
@@ -235,6 +245,24 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                             
                       ),
                     ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    DropdownButton(
+                      value: _selectedHospital,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _selectedHospital = newValue as String;
+                        });
+                      },
+                      items: _hospitals.map((hospital) {
+                        return DropdownMenuItem(
+                          value: hospital,
+                          child: Text(hospital),
+                        );
+                      }).toList(),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -357,7 +385,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                         width: 200,
                         height: 50,
                         child: ElevatedButton(onPressed: () async{
-                          if(_formkey.currentState!.validate() && _selectedBloodType != 'Select Blood Type' && _selectedOrganType != 'Select Organ Type'){
+                          if(_formkey.currentState!.validate() && _selectedBloodType != 'Select Blood Type' && _selectedOrganType != 'Select Organ Type' && _selectedHospital != 'Select Nearby Hospital'){
                             
                             await Saveorgandonardetails().addOrganDonarDetails(
                               _fullNameController.text,
@@ -365,6 +393,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                               _addressController.text,
                               _phoneController.text,
                               _selectedDate,
+                              _selectedHospital,
                               _medicalConditionController.text,
                               _selectedBloodType,
                               _previousSurgeriesController.text,
@@ -382,6 +411,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                             _reasonController.clear();
                             _selectedDate = DateTime.now();
                             setState(() {
+                              _selectedHospital = 'Select Nearby Hospital';
                               _selectedBloodType = 'Select Blood Type';
                               _selectedOrganType = 'Select Organ Type';
                             });
@@ -393,7 +423,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                               
                           else if(_selectedBloodType == 'Select Blood Type' || _selectedOrganType == 'Select Organ Type'){
                             Fluttertoast.showToast(
-                              msg: "Please Select Blood Type And Organ Type",
+                              msg: "Please Select Blood Type, hospital And Organ Type",
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.CENTER,
                               timeInSecForIosWeb: 2,

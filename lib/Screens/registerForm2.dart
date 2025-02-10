@@ -13,6 +13,8 @@ class BloodDonationFormPage extends StatefulWidget {
 }
 
 class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
+
+  String _selectedHospital = 'Select Nearby Hospital';
   String _selectedBloodType = 'Select Blood Type';
   String _selectedGender = 'Select Gender';
 
@@ -30,6 +32,15 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
   final TextEditingController _medicalConditionController = TextEditingController();
   final TextEditingController _previousSurgeriesController = TextEditingController();
   final TextEditingController _anyDiseasesController = TextEditingController();
+
+  final List<String> _hospitals = [
+    'Select Nearby Hospital',
+    'Kandy Hospital',
+    'Colombo Hospital',
+    'Galle Hospital',
+    'Jaffna Hospital',
+    'Matara Hospital',
+  ];
 
   final List<String> _bloodTypes = [
     'Select Blood Type',
@@ -202,7 +213,23 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                       ],
                     ),
                     const SizedBox(height: 10),
+                    DropdownButton(
+                      value: _selectedHospital,
+                      onChanged: (newValue) {
+                        setState(() {
+                          _selectedHospital = newValue as String;
+                        });
+                      },
+                      items: _hospitals.map((hospital) {
+                        return DropdownMenuItem(
+                          value: hospital,
+                          child: Text(hospital),
+                        );
+                      }).toList(),
+                    ),
+                    const SizedBox(height: 10),
                     const Text("Medical History Of Donor"),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _medicalConditionController,
                       validator: (value) {
@@ -293,7 +320,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate() &&
                                 _selectedBloodType != 'Select Blood Type' &&
-                                _selectedGender != 'Select Gender') {
+                                _selectedGender != 'Select Gender' && _selectedHospital != 'Select Nearby Hospital') {
                               await Saveblooddonardetails().addBloodDonarDetails(
                                 _nameController.text,
                                 _idController.text,
@@ -301,6 +328,7 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                                 _phoneController.text,
                                 _selectedBirthDate,
                                 _selectedGender,
+                                _selectedHospital,
                                 _medicalConditionController.text,
                                 _selectedBloodType,
                                 _previousSurgeriesController.text,
@@ -322,11 +350,24 @@ class _BloodDonationFormPageState extends State<BloodDonationFormPage> {
                               _selectedLastDonatedDate = DateTime.now();
 
                               setState(() {
+                                _selectedHospital = 'Select Nearby Hospital';
                                 _selectedGender = 'Select Gender';
                                 _selectedBloodType = 'Select Blood Type';
                               });
 
                               openDialog(context);
+                            }
+
+                            else if (_selectedBloodType == 'Select Blood Type' || _selectedGender == 'Select Gender' || _selectedHospital == 'Select Nearby Hospital') {
+                              Fluttertoast.showToast(
+                                msg: "Please select a valid blood type, gender and hospital.",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0,
+                              );
                             }
                           },
                           style: ButtonStyle(
