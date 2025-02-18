@@ -7,7 +7,11 @@ import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:provider/provider.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  String email;
+   MyDrawer({
+    super.key,
+    required this.email
+    });
   
 
   @override
@@ -31,10 +35,10 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             accountName: const Text(
-              "C.Jayakody",
+              "",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            accountEmail: const Text("chathura@gmail.com"),
+            accountEmail:  Text(email, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white)),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: ClipOval(
@@ -57,7 +61,7 @@ class MyDrawer extends StatelessWidget {
                   title: const Text("Home", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
                   onTap: () {
                     // Navigate to Home
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>  HomePage(email: email)));
                   },
                 ),
                 ListTile(
@@ -92,7 +96,7 @@ class MyDrawer extends StatelessWidget {
               children: [
                 Text(
                   "App Version: 1.0.0",
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: TextStyle(fontSize: 14, color: Color.fromARGB(255, 57, 57, 57)),
                 ),
               ],
             ),

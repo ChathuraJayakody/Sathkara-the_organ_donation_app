@@ -143,6 +143,9 @@ TextEditingController passwordController = TextEditingController();
                           error = "Please enter a valid email!";
                         });
                       } else {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("User Registered Successfully"),
+                        ));
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Loginpage(),));
                       }
                     },

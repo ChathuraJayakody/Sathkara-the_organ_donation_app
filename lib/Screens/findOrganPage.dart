@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/map_page.dart';
+import 'package:organ_donation_app/Services/saveOrganDonarDetails.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -11,43 +13,88 @@ class Findorganpage extends StatefulWidget {
 }
 
 class _FindorganpageState extends State<Findorganpage> {
-  List<Map<String, dynamic>> organList = [
-    {
-      'organ': 'Heart',
-      'hospital': 'Kandy Hospital',
-      'contact': '0771234567',
-      'latitude': 7.28652,
-      'longitude': 80.63142
-    },
-    {
-      'organ': 'Eye',
-      'hospital': 'Colombo Hospital',
-      'contact': '0112233445',
-      'latitude': 6.919144,
-      'longitude': 79.868027
-    },
-    {
-      'organ': 'Kidney',
-      'hospital': 'Galle Hospital',
-      'contact': '0913344556',
-      'latitude': 6.066531,
-      'longitude': 80.225569
-    },
-    {
-      'organ': 'Liver',
-      'hospital': 'Jaffna Hospital',
-      'contact': '0214455667',
-      'latitude': 9.665972,
-      'longitude': 80.014722
-    },
-    {
-      'organ': 'Lung',
-      'hospital': 'Matara Hospital',
-      'contact': '0415566778',
-      'latitude': 5.9477,
-      'longitude': 80.5496
-    },
-  ];
+
+  Stream? organDonarDetailsStream;
+
+  getontheLoad() async {
+    organDonarDetailsStream = await Saveorgandonardetails().getOrganDonarDetails();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getontheLoad();
+  }
+
+  Widget allOrganDonars() {
+    final themProvider = Provider.of<Themeprovider>(context);
+    final isDarkMode = themProvider.isDarkMode;
+
+    double mqWidth = MediaQuery.of(context).size.width;
+    double mqHeight = MediaQuery.of(context).size.height;
+    return StreamBuilder(builder: (context, AsyncSnapshot snapshot) {
+      return snapshot.hasData
+          ? ListView.builder(
+            itemCount: snapshot.data.docs.length,
+            itemBuilder: (context, index){
+              DocumentSnapshot ds = snapshot.data.docs[index];
+              return Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: mqWidth * 0.05,
+                          vertical: mqHeight * 0.013),
+                      child: Container(
+                        height: mqHeight * 0.13,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: isDarkMode ? Colors.white : Colors.black),
+                          color: isDarkMode ?  Colors.black54 : Color.fromARGB(187, 190, 227, 233),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            // Navigate to the map page and pass latitude, longitude, and hospital name
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MapPage(
+                                  latitude: ds['hospital'] == "Kandy Hospital"? 7.28652 : ds['hospital'] == "Colombo Hospital"? 6.919144 : ds['hospital'] == "Galle Hospital"? 6.066531 : ds['hospital'] == "Jaffna Hospital"? 9.665972 : ds['hospital'] == "Matara Hospital"? 5.9477 : 0,
+                                  longitude: ds['hospital'] == "Kandy Hospital"? 80.63142 : ds['hospital'] == "Colombo Hospital"? 79.868027 : ds['hospital'] == "Galle Hospital"? 80.225569 : ds['hospital'] == "Jaffna Hospital"? 80.014722 : ds['hospital'] == "Matara Hospital"? 80.5496 : 0,
+                                  hospitalName: ds['hospital'],
+                                ),
+                              ),
+                            );
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text('Organ Type: '+ ds['organType'],
+                                  style: TextStyle(
+                                    fontSize: mqHeight * 0.025,
+                                    fontWeight: FontWeight.bold,
+                                    color: isDarkMode ? Colors.white : Colors.black,
+                                  )),
+                              Text('Hospital: '+ ds['hospital'],
+                                  style: TextStyle(
+                                    fontSize: mqHeight * 0.025,
+                                    color: isDarkMode ? Colors.white70 : Colors.black,
+                                  )),
+                              Text(
+                                  "Contact Number: " + ds['hospital'] == "Kandy Hospital"? "0811234567" : ds['hospital'] == "Colombo Hospital"? "0112233445" : ds['hospital'] == "Galle Hospital"? "0913344556" : ds['hospital'] == "Jaffna Hospital"? "0214455667" : ds['hospital'] == "Matara Hospital"? "0415566778" : "No contact number available",
+                                  style: TextStyle(
+                                    fontSize: mqHeight * 0.025,
+                                    color: isDarkMode ? Colors.white70 : Colors.black,
+                                  )),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+            })
+          : Container();
+    }, stream: organDonarDetailsStream
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -72,102 +119,15 @@ class _FindorganpageState extends State<Findorganpage> {
               ),
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: mqHeight * 0.08,
-                left: mqWidth * 0.05,
-                right: mqWidth * 0.05,
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(
-                      left: mqWidth * 0.06,
-                      top: mqHeight * 0.015,
-                      bottom: mqHeight * 0.015),
-                  filled: true,
-                  fillColor: isDarkMode ? const Color.fromARGB(255, 0, 0, 0) : Color.fromARGB(255, 190, 227, 233),
-                  hintText: "Search...",
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.only(right: mqHeight * 0.03),
-                    child: Icon(
-                      Icons.search,
-                      color: isDarkMode ? Colors.white : Colors.black,
-                      size: 30,
-                    ),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Color.fromARGB(255, 0, 0, 0), width: 3),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50),
-                    ),
-                  ),
-                  hintStyle: TextStyle(
-                    color: isDarkMode ? Colors.white : Colors.black,
-                    fontSize: mqHeight * 0.025,
-                  ),
-                ),
-              ),
-            ),
+            
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: ListView.builder(
-                  itemCount: organList.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: mqWidth * 0.05,
-                          vertical: mqHeight * 0.013),
-                      child: Container(
-                        height: mqHeight * 0.13,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: isDarkMode ? Colors.white : Colors.black),
-                          color: isDarkMode ?  Colors.black54 : Color.fromARGB(187, 190, 227, 233),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            // Navigate to the map page and pass latitude, longitude, and hospital name
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MapPage(
-                                  latitude: organList[index]['latitude'],
-                                  longitude: organList[index]['longitude'],
-                                  hospitalName: organList[index]['hospital'],
-                                ),
-                              ),
-                            );
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text('Organ Type: ${organList[index]['organ']}',
-                                  style: TextStyle(
-                                    fontSize: mqHeight * 0.025,
-                                    fontWeight: FontWeight.bold,
-                                    color: isDarkMode ? Colors.white : Colors.black,
-                                  )),
-                              Text('Hospital: ${organList[index]['hospital']}',
-                                  style: TextStyle(
-                                    fontSize: mqHeight * 0.025,
-                                    color: isDarkMode ? Colors.white70 : Colors.black,
-                                  )),
-                              Text(
-                                  "Contact Number: ${organList[index]['contact']}",
-                                  style: TextStyle(
-                                    fontSize: mqHeight * 0.025,
-                                    color: isDarkMode ? Colors.white70 : Colors.black,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+              child: Container(
+                child: Column(
+                  children: [
+                    Expanded(child: allOrganDonars()),
+                  ],
                 ),
-              ),
+              )
             ),
           ],
         ),
