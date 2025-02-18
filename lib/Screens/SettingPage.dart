@@ -16,7 +16,7 @@ class SettingPage extends StatelessWidget {
         backgroundColor: isDarkMode ? Colors.black : const Color.fromRGBO(1, 31, 75, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(email: "",)));
           }, 
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
         ),

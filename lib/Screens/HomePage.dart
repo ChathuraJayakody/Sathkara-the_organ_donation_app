@@ -7,7 +7,11 @@ import 'package:organ_donation_app/Screens/findOrganPage.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  String email;
+   HomePage({
+    super.key,
+    required this.email,
+    });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -58,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     double mqWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      drawer: const MyDrawer(),
+      drawer:  MyDrawer(email: widget.email,),
       backgroundColor: isDarkMode
           ? Colors.black
           : const Color.fromRGBO(

@@ -40,4 +40,10 @@ class Saveorgandonardetails {
       print("Error $e");
     }
    }
+
+
+   // Function to get all the organ donar details from Firestore
+    Future<Stream<QuerySnapshot>> getOrganDonarDetails() async {
+      return await FirebaseFirestore.instance.collection('Organ_Donar_Details').snapshots();
+    }
 }
