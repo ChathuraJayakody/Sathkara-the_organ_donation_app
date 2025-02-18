@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'Theme.dart'; // Import LightMode & DarkMode themes
+import 'Theme.dart'; 
 
 class Themeprovider with ChangeNotifier {
   ThemeData _themeData = LightMode;
-  bool isDarkMode = false; // Track dark mode state
+  bool isDarkMode = false; 
 
   ThemeData get themeData => _themeData;
 
@@ -15,6 +15,6 @@ class Themeprovider with ChangeNotifier {
       _themeData = DarkMode;
       isDarkMode = true;
     }
-    notifyListeners(); // Notify UI to update
+    notifyListeners(); 
   }
 }

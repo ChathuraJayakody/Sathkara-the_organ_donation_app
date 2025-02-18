@@ -9,20 +9,19 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<Themeprovider>(context);
-    final bool isDarkMode = themeProvider.isDarkMode; // ✅ Directly use provider state
-
+    final bool isDarkMode = themeProvider.isDarkMode; 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: isDarkMode ? Colors.black : const Color.fromRGBO(1, 31, 75, 1),
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(email: "",)));
           }, 
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
         ),
         title: const Text(
           "Settings",
-          style: TextStyle(color: Colors.white), // ✅ Ensure text is visible on AppBar
+          style: TextStyle(color: Colors.white), 
         ),
         centerTitle: true,
       ),
@@ -44,7 +43,7 @@ class SettingPage extends StatelessWidget {
               trailing: Switch(
                 value: isDarkMode,
                 onChanged: (value) {
-                  themeProvider.toggleTheme(); // ✅ Toggle dark mode
+                  themeProvider.toggleTheme(); 
                 },
               ),
             ),

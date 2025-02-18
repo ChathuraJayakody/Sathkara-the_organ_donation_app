@@ -119,8 +119,12 @@ String error = "";
                             error = "Could not signin with incorrect user credintial";
                           });
                         } else{
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text("User Loged Successfully"),
+                            duration: Duration(seconds: 5),
+                            ));
                           // ignore: use_build_context_synchronously
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomePage(),));
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>  HomePage(email: email,),));
                         }
                       },
                       child: const Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),),

@@ -26,6 +26,12 @@ class MapPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,color: Colors.white ,),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(
           '$hospitalName Location',
           style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255)),

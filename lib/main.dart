@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
-import 'package:organ_donation_app/Screens/SettingPage.dart';
 import 'package:organ_donation_app/Screens/splash_screen.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart'; //  Import ThemeProvider
 import 'package:provider/provider.dart';
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: themeProvider.themeData, //  Apply dynamic theme
-          home: isLoggedIn ? const HomePage() : const SplashScreen(),
+          home: isLoggedIn ?  HomePage( email: "",) : const SplashScreen(),
         );
       },
     );

@@ -6,6 +6,7 @@ class Blooddonardetails {
   String? phoneNum;
   DateTime? dateOfBirth;
   String? gender;
+  String? hospital;
   String? medicalCondition;
   String? bloodType;
   String? previousSurgeries;
@@ -20,6 +21,7 @@ class Blooddonardetails {
     required this.phoneNum,
     required this.dateOfBirth,
     required this.gender,
+    required this.hospital,
     required this.medicalCondition,
     required this.bloodType,
     required this.previousSurgeries,
@@ -37,6 +39,7 @@ class Blooddonardetails {
       phoneNum: doc['phoneNum'],
       dateOfBirth: doc['dateOfBirth'].toDate(),
       gender: doc['gender'],
+      hospital: doc['hospital'],
       medicalCondition: doc['medicalCondition'],
       bloodType: doc['bloodType'],
       previousSurgeries: doc['previousSurgeries'],
@@ -53,6 +56,7 @@ class Blooddonardetails {
     'phoneNum': phoneNum,
     'dateOfBirth': dateOfBirth,
     'gender': gender,
+    'hospital': hospital,
     'medicalCondition': medicalCondition,
     'bloodType': bloodType,
     'previousSurgeries': previousSurgeries,

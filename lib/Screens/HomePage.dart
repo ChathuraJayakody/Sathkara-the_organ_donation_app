@@ -7,7 +7,11 @@ import 'package:organ_donation_app/Screens/findOrganPage.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  String email;
+   HomePage({
+    super.key,
+    required this.email,
+    });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -52,22 +56,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<Themeprovider>(context);
     final bool isDarkMode =
-        themeProvider.isDarkMode; // ✅ Check if dark mode is ON
+        themeProvider.isDarkMode; 
 
     double mqHeight = MediaQuery.of(context).size.height;
     double mqWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      drawer: const MyDrawer(),
+      drawer:  MyDrawer(email: widget.email,),
       backgroundColor: isDarkMode
           ? Colors.black
           : const Color.fromRGBO(
-              179, 205, 224, 1), // ✅ Dynamic background color
+              179, 205, 224, 1), 
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
             onPressed: () {
-              Scaffold.of(context).openDrawer(); // Open the drawer safely
+              Scaffold.of(context).openDrawer(); 
             },
             icon: Icon(
               size: 30,
@@ -82,7 +86,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 1,
         backgroundColor: isDarkMode
             ? Colors.grey[900]
-            : const Color.fromRGBO(1, 31, 75, 1), // ✅ Dark mode AppBar color
+            : const Color.fromRGBO(1, 31, 75, 1), 
         title: Text(
           "Sathkara",
           style: TextStyle(
@@ -91,7 +95,7 @@ class _HomePageState extends State<HomePage> {
             color: isDarkMode
                 ? Colors.white
                 : const Color.fromARGB(
-                    255, 255, 255, 255), // ✅ Adjust text color
+                    255, 255, 255, 255), 
           ),
         ),
         centerTitle: true,
@@ -162,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                   color: isDarkMode
                       ? Colors.white
                       : const Color.fromARGB(
-                          255, 255, 255, 255), // ✅ Text color adapts
+                          255, 255, 255, 255), 
                   fontWeight: FontWeight.w600,
                 ),
                 textAlign: TextAlign.center,
@@ -189,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: WidgetStatePropertyAll(isDarkMode
                         ? Colors.grey[800]
                         : const Color.fromRGBO(
-                            1, 31, 75, 1)), // ✅ Button color changes
+                            1, 31, 75, 1)), 
                   ),
                   child: const Text("Donate",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
@@ -212,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: WidgetStatePropertyAll(isDarkMode
                         ? Colors.grey[800]
                         : const Color.fromRGBO(
-                            1, 31, 75, 1)), // ✅ Button color changes
+                            1, 31, 75, 1)), 
                   ),
                   child: const Text("Find Organ",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
