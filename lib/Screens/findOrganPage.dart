@@ -101,9 +101,6 @@ class _FindorganpageState extends State<Findorganpage> {
     final themProvider = Provider.of<Themeprovider>(context);
     final isDarkMode = themProvider.isDarkMode;
 
-    double mqWidth = MediaQuery.of(context).size.width;
-    double mqHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 118, 136, 147),
       body: Container(

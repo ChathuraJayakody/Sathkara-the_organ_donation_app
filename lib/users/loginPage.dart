@@ -2,9 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:organ_donation_app/Screens/HomePage.dart';
 import 'package:organ_donation_app/Services/auth.dart';
-import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:organ_donation_app/users/registerPage.dart';
-import 'package:provider/provider.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});

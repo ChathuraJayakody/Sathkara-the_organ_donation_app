@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:get/get.dart';
 import 'package:organ_donation_app/controller/map_controller.dart';
-import 'package:get/get.dart';
 import 'package:organ_donation_app/theme/ThemeProvider.dart';
 import 'package:provider/provider.dart';
 
