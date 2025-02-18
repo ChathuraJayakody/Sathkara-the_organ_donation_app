@@ -9,6 +9,7 @@ class MapController extends GetxController {
   var markers = <Marker>{}.obs;
   var polylines = <Polyline>{}.obs;
   LatLng? userLocation;
+  GoogleMapController? _mapController;
 
   Future<void> getCurrentLocation() async {
     try {
@@ -32,62 +33,73 @@ class MapController extends GetxController {
     update();
   }
 
+  void setMapController(GoogleMapController controller) {
+    _mapController = controller;
+    if (userLocation != null) {
+      getRoute(userLocation!, _mapController);
+    }
+  }
+
   Future<void> getRoute(LatLng destination, GoogleMapController? mapController) async {
+  if (userLocation == null) {
+    await getCurrentLocation(); // Ensure user location is obtained
     if (userLocation == null) {
-      print("Error: User location is null");
+      print("Error: User location is still null after fetching.");
       return;
     }
+  }
 
+  print("Fetching route from: ${userLocation!.latitude}, ${userLocation!.longitude} to ${destination.latitude}, ${destination.longitude}");
 
-    markers.clear();
-    polylines.clear();
-    update();
+  markers.clear();
+  polylines.clear();
+  update();
 
+  setMarker(userLocation!, "Your Location");
+  setMarker(destination, "Destination Hospital");
 
-    setMarker(userLocation!, "Your Location");
-    setMarker(destination, "Destination");
+  final String url =
+      "http://router.project-osrm.org/route/v1/driving/"
+      "${userLocation!.longitude},${userLocation!.latitude};"
+      "${destination.longitude},${destination.latitude}?overview=full&geometries=polyline";
 
-    final String url =
-        "http://router.project-osrm.org/route/v1/driving/"
-        "${userLocation!.longitude},${userLocation!.latitude};"
-        "${destination.longitude},${destination.latitude}?overview=full&geometries=polyline";
+  try {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      print("OSRM API Response: $data");
 
-    print("Fetching directions from OSRM API...");
+      if (data.containsKey('routes') && data['routes'].isNotEmpty) {
+        final geometry = data['routes'][0]['geometry'];
+        final List<LatLng> routePolyline = _decodePolyline(geometry);
 
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        print("OSRM API Response: $data");
+        print("Decoded polyline points: $routePolyline");
 
-        if (data.containsKey('routes') && data['routes'].isNotEmpty) {
-          final geometry = data['routes'][0]['geometry'];
-          final List<LatLng> routePolyline = _decodePolyline(geometry);
-
+        if (routePolyline.isNotEmpty) {
           polylines.add(
             Polyline(
               polylineId: const PolylineId("route"),
               points: routePolyline,
-              color: const Color.fromARGB(255, 38, 14, 252),
+              color: Colors.blue,
               width: 5,
             ),
           );
-
           update();
-
           _adjustCameraToRoute(routePolyline, mapController);
         } else {
-          print("Error: No route found in OSRM response.");
+          print("Error: Decoded polyline is empty.");
         }
       } else {
-        print("Failed to load directions. Status code: ${response.statusCode}");
+        print("Error: No routes found in OSRM response.");
       }
-    } catch (e) {
-      print("Error fetching directions: $e");
+    } else {
+      print("Failed to load directions. Status code: ${response.statusCode}");
     }
+  } catch (e) {
+    print("Error fetching directions: $e");
   }
+}
 
-  // Function to adjust the map to show the full route
   void _adjustCameraToRoute(List<LatLng> route, GoogleMapController? mapController) {
     if (route.isEmpty || mapController == null) return;
 
@@ -101,11 +113,9 @@ class MapController extends GetxController {
         route.reduce((a, b) => a.longitude > b.longitude ? a : b).longitude,
       ),
     );
-
     mapController.animateCamera(CameraUpdate.newLatLngBounds(bounds, 50));
   }
 
-  // Function to decode OSRM polyline
   List<LatLng> _decodePolyline(String polyline) {
     const factor = 1e5;
     List<LatLng> points = [];
@@ -127,13 +137,11 @@ class MapController extends GetxController {
       lat += dlat;
       shift = 0;
       result = 0;
-
       do {
         byte = polyline.codeUnitAt(index++) - 63;
         result |= (byte & 0x1f) << shift;
         shift += 5;
       } while (byte >= 0x20);
-
       int dlng = (result & 1) != 0 ? ~(result >> 1) : result >> 1;
       lon += dlng;
       points.add(LatLng(lat / factor, lon / factor));

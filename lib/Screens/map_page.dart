@@ -22,16 +22,15 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<Themeprovider>(context);
     final bool isDarkMode = themeProvider.isDarkMode;
-    // Use MapController to manage map and zoom
     final MapController mapController = Get.put(MapController());
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           '$hospitalName Location',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255)),
         ),
-        backgroundColor: isDarkMode ? Colors.black : const Color.fromRGBO(1, 31, 75, 1),
+        backgroundColor: isDarkMode ? const Color.fromARGB(255, 0, 0, 0) : const Color.fromRGBO(1, 31, 75, 1),
       ),
       body: GetBuilder<MapController>(
         initState: (_) async {
